@@ -1,0 +1,48 @@
+$( document ).ready(function(){
+    //si clic
+    $(".passw").click(function(){		
+        $(".capa").addClass("moverIzquierda");
+        //$(".capa").removeClass("main .capa");
+	});
+
+    $("#menuHamburg").click(function(){		
+        console.log("saludo desde  clic menuhamburg");
+        $(".menuDespl").addClass(".abrirMenuDespl");        
+	});
+
+    //DURA MUY POCO TIEMPO
+   /* $("#recuperar").click(function(){		
+        $valor = true;
+	});*/
+});
+//como puedo hacer para verificar el valor de aqui?
+$valor = false;
+if($valor== true){
+    Swal.fire({
+        title: "¡Buen trabajo!",
+        text: "Revisa tu correo para recuperar la contraseña!!",
+        icon: "success"
+    });
+}
+
+
+/*iniciar sesion
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+    });
+    Toast.fire({
+        icon: "success",
+        title: "Signed in successfully"
+    });
+
+});
+
+*/
