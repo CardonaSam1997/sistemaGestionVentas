@@ -5,10 +5,19 @@ $( document ).ready(function(){
         //$(".capa").removeClass("main .capa");
 	});
 
-    $("#menuHamburg").click(function(){		
-        console.log("saludo desde  clic menuhamburg");
-        $(".menuDespl").addClass(".abrirMenuDespl");        
+    let num = 0;
+    $("#menuHamburg").click(function(){
+        if(num == 0){            
+            $(".menuDespl").addClass("abrirMenuDespl");
+            $("#lista").addClass("abrirLista");
+            num = 1;            
+        }else{            
+            $(".menuDespl").removeClass("abrirMenuDespl");
+            $("#lista").removeClass("abrirLista");            
+            num = 0;
+        }
 	});
+   
 
     //DURA MUY POCO TIEMPO
    /* $("#recuperar").click(function(){		

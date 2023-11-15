@@ -4,6 +4,7 @@ require_once("../modelo/Sesion.php");
 //Instancia de objetos
 $iniciarSesion = new IniciarSesion();
 
+//Iniciar sesion
 if(isset($_POST['ingresar'])){
     $error = "";
     $user = $_POST['user'];
@@ -13,7 +14,7 @@ if(isset($_POST['ingresar'])){
     }else{//no estan vacios
         $verificar = $iniciarSesion->verificarUsuario($user,$passw);
         if($verificar == true){//true
-            header("Location: ./contenido.php");
+            header("Location: ./menuPrincipal.php");
         }else{//no agarra este !! HAY QUE MIRAR PORQUE!!
            $error = "El usuario o la contraseña son incorrectos";
         }
@@ -26,6 +27,8 @@ PARA QUE AL ENVIAR EL FORMULARIO LA CAPA SE QUEDE EN LEFT
 Y CUANDO PRESIONE EL BOTON OK DE SWEET ALERT VOLVER A AGREGARLE ESA CAPA Y RETIRARLE
 LA OTRA(MOVIMIENTOIZQUIERDO)*/ 
 //CUANDO EMAIL ESTA VACIO NO SALE EL MENSAJE DE ERROR -- SE RESETEA LA PAGINA
+
+//Recuperar password
 if(isset($_GET['recuperar'])){
     $errorP = "";
     $email = $_GET['email'];
