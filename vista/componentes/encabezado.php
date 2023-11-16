@@ -49,12 +49,14 @@
                                 Configuración
                             </li>
                         </a>
-                        <a href="">
+                        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET"><!-- AGREGAR input para enviar cerrar sesion por url -->
                             <li>
-                                <i class="fa-solid fa-door-open fa-xl" style="color: #ffffff;"></i>
-                                Cerrar sesión
+                                <button type="submit" name="cerrar" style="background-color: red;border:none;color:white;" value="cerrar">
+                                    <i class="fa-solid fa-door-open fa-xl" style="color: #ffffff;"></i>
+                                    Cerrar sesión
+                                </button>                                
                             </li>
-                        </a>
+                        </form>
                     </ul>
                 </div>
                 <div id="menuHamburg">                

@@ -1,6 +1,5 @@
 <?php
 require_once("Conexion.php");
-
 class Producto{
     private $con;
 
@@ -28,7 +27,7 @@ class Producto{
         $query = "INSERT INTO productos
         (codigo,nombre,marca,precio,categoria,fechaVencimiento) 
         VALUES (:codigo,:nombre,:marca,:precio,:categoria,:fechaV)";
-        try{
+        try{//que retorna cuando el valor esta vacio? array vacio?
             $ps = $this->con->Conectar()->prepare($query);
             $ps->bindParam(":codigo",$codigo);
             $ps->bindParam(":nombre",$nombre);
@@ -45,7 +44,41 @@ class Producto{
         }
     }
 
+    //PROBAR ESTO
+    public function eliminarProductos($id){
+        $query = "DELETE FROM productos WHERE codigo= :codigo";
+        try{
+            $ps = $this->con->Conectar()->prepare($query);            
+            $ps->bindParam(":codigo",$id);
+            $ps->execute();           
+            echo "producto eliminado";
+        }catch(PDOException $e){
+            error_log("ERROR en guardarProductos: ".$e->getMessage());
+        }finally{
+            $ps = null;            
+            $this->con->desconectar();
+        }
+    }
+
+
+    public function traerFechaVencimientoProductos(){
+        $query = "SELECT codigo,fechaVencimiento FROM productos";
+        try{
+            $ps = $this->con->Conectar()->prepare($query);
+            $ps->execute();
+            $rs = $ps->fetchAll(PDO::FETCH_ASSOC);
+            return $rs;
+        }catch(PDOException $e){
+            error_log("ERROR en traerTodosProductos: ".$e->getMessage());
+        }finally{
+            $ps = null;
+            $rs = null;
+            $this->con->desconectar();
+        }
+    }
+
 
 }
+
 
 ?>

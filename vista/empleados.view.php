@@ -1,5 +1,5 @@
 <?php require_once("../controlador/ControladorEncabezado.php"); ?>
-    <main style="height: 900px;" id="inventario">
+    <main style="height: 900px;" id="empleados">
         <div class="row">
             <div class="col-md-12" >
                 <div class="cont-form">
@@ -73,18 +73,11 @@
                 <div class="cont-table">
                     <table  class="table">
                         <thead>
-                            <tr>
-                                <!-- EN la tabla mostrar lo necesario para la empresa, en caso tal hacer una pagina para ver 
-                                todos los datos del usuario o descargar un EXCEL con ellos-->
-                                <!-- FUNCIONALIDAD PARA DESCARGAR ESTOS DATOS EN UN EXCEL -->
-                                <th scope="col">Codigo Empleado</th>
-                                <th scope="col">Cedula</th>
+                            <tr>                                
+                                <th scope="col">Codigo Emp</th>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Edad</th>
-                                <th scope="col">Telefono</th>
                                 <th scope="col">Correo</th>
                                 <th scope="col">Dirección</th>
-                                <th scope="col">Discapacitado</th>
                                 <th scope="col">Cargo</th>
                                 <th scope="col">Salario</th>
                                 <th scope="col">Fecha contratación</th>
@@ -94,14 +87,10 @@
                         <tbody>
                             <?php foreach($listaEmpleados as $empleado):?><!-- un checkBox para mostrar solo los activos hacer una mejora, solo mostrar los que estan activos-->
                                 <tr>                                    
-                                    <td><?php echo $empleado['numero_empleado']; ?></td>
-                                    <td><?php echo $empleado['cedula']; ?></td>
-                                    <td><?php echo $empleado['nombre']; ?></td>
-                                    <td><?php echo $empleado['edad']; ?></td>
-                                    <td><?php echo $empleado['telefono']; ?></td>
+                                    <td><?php echo $empleado['numero_empleado']; ?></td>                                    
+                                    <td><?php echo $empleado['nombre']; ?></td>                                    
                                     <td><?php echo $empleado['correo']; ?></td>
-                                    <td><?php echo $empleado['direccion']; ?></td>
-                                    <td><?php echo $empleado['discapacitado']; ?></td>
+                                    <td><?php echo $empleado['direccion']; ?></td>                                    
                                     <td><?php echo $empleado['cargo']; ?></td>
                                     <td><?php echo $empleado['salario']; ?></td>
                                     <td><?php echo $empleado['fecha_contratacion']; ?></td>

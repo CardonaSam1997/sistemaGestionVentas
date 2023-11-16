@@ -1,10 +1,8 @@
 <?php
 session_start();
 
-
-if(!isset($_SESSION['usuario'])){
-    header("Location: ../index.php");
-}
+//ESTE FRAGMENTO DE CODIGO DEBERIA IR EN EL HEADER
+//aqui ira la grafica
 
 
 

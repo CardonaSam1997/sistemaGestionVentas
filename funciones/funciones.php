@@ -1,6 +1,5 @@
 <?php
 
-
 function errorInicioSesion($verificar){
     
 }
@@ -35,13 +34,13 @@ function traerPagina(){    //este no se esta usando
     }
 }
 
-
-/*no esta vinculado
-function prueba(){
-    if(isset($_GET['pagina'])){
-        $vinculo = $_GET['pagina'];
-    }
-    return $vinculo;
-}*/
+//devulve la diferencia de dias entre ambas fechas
+function compararFechas($fecha){
+    //comparo dias de diferencia
+    $tiempo1 = new DateTime("2023-11-16");//"2023-11-16"
+    $tiempo2 = new DateTime($fecha);//$r[1]['fechaVencimiento']
+    $tiempo = $tiempo1->diff($tiempo2);    
+    return $tiempo->format('%a');
+}
 
 ?>

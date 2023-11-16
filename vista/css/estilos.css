@@ -162,12 +162,18 @@ main .capa{
 }*/
 
 /* TABLA DEL INVENTARIO */
-#inventario .row .col-md-12 .cont-table{
-    border: 1px solib black;
-    background-color: #a51d2d;
+#inventario .row .col-md-12 .cont-table{        
     margin: auto;
     width: 1000px;
 }
+
+#empleados .row .col-md-12 .cont-table{
+    border: 1px solib black;    
+    margin: auto;
+    width: 1150px;
+}
+
+
 
 .cont-form{    
     width: 1000px;
