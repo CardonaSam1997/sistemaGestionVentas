@@ -1,6 +1,6 @@
     <div class="subir">
         <a href="#menu">
-            <i class="fa-solid fa-arrow-up fa-2xl" style="color: #c0bfbc;"></i>
+            <i class="fa-solid fa-arrow-up fa-beat-fade fa-lg" style="color: #ffffff;"></i>
         </a>
     </div>
     <footer>        
@@ -8,6 +8,7 @@
             <div class="col-md-12"></div>
         </div>
     </footer>
+    <p id="saludos">contenido p</p>
     <script src="../vista/js/app.js"></script>
 </body>
 </html>

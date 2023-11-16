@@ -1,35 +1,19 @@
+-----------
+
+---------------
+
+
 -------------
-MENU
-barra del menu, organizar contenido
-agregar contenido al menu, organizar get de contenido del menu
 
---------------
-ENCABEZADO.PHP
-En esta pagina esta el tema del las paginas del menu. ORGANIZAR!!
+-------------------
 
-----
-menu usuarios
-Panel crear usuarios
-hacer una tabla con botones para actualizar, modificar, y eliminar
+
+------------
 
 -----------
-PRODUCTOS
-si fecha actual esta cerca a la fecha de vencimiento, la tabla pintara rojo
-y se mostrara un mensaje al usuarios al ingresar a la plataforma
 
-a esos productos le hace falta una cantidad(unidad) OJO!!
+--------------------
 
-FILTRO
-PARA BUSCAR PRODUCTOS POR NOMBRE, categoria
----------------
-HAY QUE VER COMO ENVIAR FECHAS A MYSQL DESDE PHP
-FECHAS
-CREO QUE LA FORMA MAS ACTUAL PARA LAS FECHAS ES:
-
-date_default_timezone_set('Europe/Madrid');
- 
-$fecha = new DateTime();
- 
-//DATE: YYYY-MM-DD
-echo $fecha->format("Y-m-d");
-//2021-10-08
+----
+ver que tan posible es la idea de que al admin se le notifiquen las acciones de los empleados
+en cuanto a crud de productos y mas

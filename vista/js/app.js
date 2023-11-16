@@ -24,15 +24,22 @@ $( document ).ready(function(){
         $valor = true;
 	});*/
 });
+
+console.log("hola");
+//FUNCIONA PARA EXTRAER ELEMENTOS DEL HTML
+var a = document.getElementById('saludos');
+console.log(a.textContent);
+
+
 //como puedo hacer para verificar el valor de aqui?
-$valor = false;
+/*$valor = false;
 if($valor== true){
     Swal.fire({
         title: "¡Buen trabajo!",
         text: "Revisa tu correo para recuperar la contraseña!!",
         icon: "success"
     });
-}
+}*/
 
 
 /*iniciar sesion

@@ -15,9 +15,8 @@ function fechaHoy(){
     return $fecha;
 }
 
-function traerPagina(){
-    
-    if(isset($_GET['pagina'])){
+function traerPagina(){    
+    if(isset($_GET['pagina'])){        
         switch ($_GET['pagina']) {
             case "configuracion":
                 header("Location: ../controlador/configuracion.php");
@@ -34,4 +33,16 @@ function traerPagina(){
         }
     }
 }
+
+
+
+
+//no esta vinculado
+function prueba(){
+    if(isset($_GET['pagina'])){
+        $vinculo = $_GET['pagina'];
+    }
+    return $vinculo;
+}
+
 ?>

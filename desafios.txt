@@ -1,0 +1,17 @@
+DESAFIOS DEL PROCESO
+1- a medida que iba construyendo la aplicacion, empece a ver distintas
+formas para mejorar la primer idea
+
+2- tambien me enfrente con temas que nunca habia realizado y me toco buscar 
+como podia desarrollar mis ideas
+
+3- comunicacion entre php y js, usando ajax(nuevo tema para mi)
+
+4- dificultad para identificar si era mejor emplear una funcion o crear un objeto de dicha tarea
+
+5- desarrollo del front-end, paneles corredizos
+
+6- Organizar los estilos desde el css, me genera cierto desafio
+
+7- indecision, a medida que avanzaba como no tenia reglas "estrictas" le iba cambiando
+el nombre a los titulos

@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+session_start(); 
+require("../funciones/funciones.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,23 +24,39 @@
 <body>
     <header id="menu">
         <div class="row">
-            <div class="col-md-4">
+            <!-- APLICAR ESTOS VALORES DESDE EL CSS -->
+            <div class="col-md-4" >
                 <div class="menuDespl">                    
                     <ul id="lista">
                         <!-- a PELEAR NUEVAMENTE CON LOS PUNTOS :/ -->
-                        <a href="../../../controlador/menuPrincipal.php">
-                            <li>Menu principal</li>
+                        <a href="menuPrincipal.php?pagina=Menú principal">
+                            <li>
+                                <i class="fa-solid fa-shop fa-xl" style="color: #ffffff;"></i>
+                                Menu principal
+                            </li>
                         </a>
-                        <a href="menuPrincipal.php?pagina=inventario">
-                            <li>Inventario</li>
+                        <a href="inventario.php?pagina=Inventario">
+                            <li>
+                                <i class="fa-solid fa-bag-shopping fa-xl" style="color: #ffffff;"></i>
+                                Productos
+                            </li>                            
                         </a>
-                        <a href="menuPrincipal.php?pagina=usuarios">
-                            <li>Usuarios</li>
-                        </a>
-                        <a href="menuPrincipal.php?pagina=configuracion">
+                        <a href="empleados.php?pagina=Empleados">
                             <li>
                                 <i class="fa-solid fa-users fa-xl"></i>
+                                Empleados
+                            </li>
+                        </a>
+                        <a href="configuracion.php?pagina=Configuración">
+                            <li>
+                                <i class="fa-solid fa-gear fa-xl" style="color: #ffffff;"></i>
                                 Configuración
+                            </li>
+                        </a>
+                        <a href="">
+                            <li>
+                                <i class="fa-solid fa-door-open fa-xl" style="color: #ffffff;"></i>
+                                Cerrar sesión
                             </li>
                         </a>
                     </ul>
@@ -45,20 +64,29 @@
                 <div id="menuHamburg">                
                    <i class="fa-solid fa-bars fa-2xl " style="color: #deddda;"></i>
                 </div>
+                <!-- <div style="position: absolute;right:-30px;">
+                    <h2 style="text-align:right;padding-top:30px;right:-10px;">hola php</h2>
+                </div> -->
             </div>
-            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h2><?php echo prueba(); ?></h2>
+            </div>
             <div class="col-md-4">
                 <ul id="usuario">
                     <li>
-                        <i class="fa-solid fa-envelope" style="color: #a51d2d;"></i>
+                        <!-- AGREGAR UN CONDICIONAL -->
+                        <!-- si en notificacion hay un nuevo registro y no se ha visto 
+                        se muestra la campana que se mueve(shake)-->
+                        <i class="fa-solid fa-bell fa-shake fa-xl" style="color: #e66100;"></i>
+                        <!-- De lo contrario, se muestra la campana que esta quieta-->
+                        <i class="fa-solid fa-bell fa-xl" style="color: #e66100;"></i>
                     </li>                    
                     <li> <!-- cambiar icono por imagen-->                        
                         <h6><?php echo $_SESSION['usuario']; ?></h6>
                         <p><?php echo $_SESSION['rol']; ?></p>                        
                     </li>
                     <li>
-                        <i class="fa-solid fa-user" style="color: #c01c28;"></i>
-                        <div></div>
+                        <i class="fa-solid fa-user fa-2xl" style="color: #a51d2d;"></i>                        
                     </li>
                 </ul>
             </div>

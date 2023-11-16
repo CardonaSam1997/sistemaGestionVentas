@@ -42,18 +42,13 @@
                                 <input type="date" name="fechaV" value="<?php echo fechaHoy(); ?>">
                             </div>
                         </div>
-                        <input type="submit" value="Guardar" class="btn btn-dark">
+                        <div class="cont-btn">
+                            <input type="submit" value="Guardar" class="btn btn-dark" name="guardar">
+                        </div>
                     </form>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <p><?php echo $resp;?></p>
-                <p>hola</p>
-            </div>
-        </div>
-        
+        </div>        
         <div class="row">
             <div class="col-md-12">
                 <div class="cont-table">
@@ -72,13 +67,33 @@
                         </thead>
                         <tbody>
                             <?php foreach($listaProductos as $producto):?>
-                                <tr>
+                                <?php if($producto['unidad'] > 5 && $producto['unidad']<= 10):?>
+                                    <tr class="<?php echo "table-warning"; ?>">
+                                <?php elseif($producto['unidad'] < 5): ?>
+                                    <tr class="<?php echo "table-danger"; ?>">
+                                <?php endif; ?>
+                                    <!-- hay que mirar como hacer un condicional aqui en la
+                                    tabla. Si unidad del producto <=10 pintar columna de rojo 
+                                    con la clase de bootstrap -->
                                     <td><?php echo $producto['codigo']; ?></td>
                                     <td><?php echo $producto['nombre']; ?></td>
                                     <td><?php echo $producto['categoria']; ?></td>
                                     <td><?php echo $producto['marca']; ?></td>
                                     <td><?php echo $producto['precio']; ?></td>
+                                    <td><?php echo $producto['unidad']; ?></td>
                                     <td><?php echo $producto['fechaVencimiento']; ?></td>
+                                    <td> 
+                                        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET">
+                                            <button type="submit" class="btn btn-danger" name="eliminar" value="<?php echo $producto['codigo']; ?>">
+                                                <i class="fa-solid fa-trash" style="color: #fafcff;" ></i>
+                                            </button>
+                                            <!-- USAR JS para que aparezca una modal al dar clic en modificar. 
+                                            se debe conservar el id del producto a modificar -->
+                                            <button type="submit" class="btn btn-success" name="modificar" value="<?php echo $producto['codigo']; ?>">
+                                                <i class="fa-solid fa-pencil" style="color: #ffffff;"></i>
+                                            </button>
+                                        </form>
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
