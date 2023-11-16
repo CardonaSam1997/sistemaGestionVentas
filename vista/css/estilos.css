@@ -151,8 +151,8 @@ main .capa{
     position: fixed;
     text-align: center;
     padding-top: 8px;
-    right: 10px;
-    bottom: 30px;
+    right: 20px;
+    bottom: 20px;
     z-index: 999;
 }
 /* CONTENEDOR DE FORMULARIOS HACER UN BORDER*/

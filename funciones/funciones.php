@@ -1,7 +1,7 @@
 <?php
 
 
-function errorInicioSesion($verificar){    
+function errorInicioSesion($verificar){
     
 }
 
@@ -9,13 +9,14 @@ function paginacion(){
 
 }
 
+
 function fechaHoy(){
-    $r = getdate(); 
-    $fecha = $r['year'] . '-' . sprintf("%02d", $r['mon']) . '-' . sprintf("%02d", $r['mday']);    
-    return $fecha;
+    $fechaHoy = new DateTime();
+    $hoy = $fechaHoy->format("Y-m-d");
+    return $hoy;
 }
 
-function traerPagina(){    
+function traerPagina(){    //este no se esta usando
     if(isset($_GET['pagina'])){        
         switch ($_GET['pagina']) {
             case "configuracion":
@@ -35,14 +36,12 @@ function traerPagina(){
 }
 
 
-
-
-//no esta vinculado
+/*no esta vinculado
 function prueba(){
     if(isset($_GET['pagina'])){
         $vinculo = $_GET['pagina'];
     }
     return $vinculo;
-}
+}*/
 
 ?>

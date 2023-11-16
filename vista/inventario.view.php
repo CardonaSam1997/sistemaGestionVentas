@@ -1,4 +1,4 @@
-<?php require_once("componentes/encabezado.php"); ?>
+<?php require_once("../controlador/ControladorEncabezado.php"); ?>
     <main style="height: 900px;" id="inventario">
         <div class="row">
             <div class="col-md-12" >
@@ -8,12 +8,12 @@
                         <div class="input-group">
                             <div class="mb-3">
                                 <label for="codigo" class="form-label">Codigo:</label>
-                                <input type="text" class="form-control" id="codigo" placeholder="Codigo" name="codigo">
+                                <input type="text" class="form-control" id="codigo" placeholder="Codigo" name="codigo" value="<?php echo $_GET['codigo']; ?>">
                             </div>
                             <!-- HAY QUE MIRAR LOS ESTILOS, para intentar cuadrar el margin de cada uno de los mb-3 -->
                             <div class="mb-3"><!-- SI APLICO EL MARGIN-LEFT AQUI FUNCIONA, EN EL CSS NO -->
                                 <label for="nombre" class="form-label">Nombre:</label>
-                                <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre">
+                                <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre" value="<?php echo $_GET['nombre']; ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="categoria" class="form-label">Categoria:</label>
@@ -30,11 +30,11 @@
                         <div class="input-group">
                             <div class="mb-3">
                                 <label for="marca" class="form-label">Marca:</label>
-                                <input type="text" class="form-control" id="marca" placeholder="Marca" name="marca">
+                                <input type="text" class="form-control" id="marca" placeholder="Marca" name="marca" value="<?php echo $_GET['marca']; ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="precio" class="form-label">Precio:</label>
-                                <input type="number" class="form-control" id="precio" placeholder="Precio del producto" name="precio">
+                                <input type="number" class="form-control" id="precio" placeholder="Precio del producto" name="precio" value="<?php echo $_GET['precio']; ?>">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Fecha de vencimiento:</label>
@@ -42,6 +42,16 @@
                                 <input type="date" name="fechaV" value="<?php echo fechaHoy(); ?>">
                             </div>
                         </div>
+                        <?php if(!empty($error)):?>
+                            <!-- quitar estilo y ponerlo en archivo.css -->
+                            <div class="alert alert-danger" role="alert" style="text-align: center;">
+                                <?php echo $error;?>
+                            </div>
+                        <?php elseif(!empty($mss)): ?>
+                            <div class="alert alert-success" role="alert" style="text-align: center;">
+                                <?php echo $error;?>
+                            </div>
+                        <?php endif; ?>
                         <div class="cont-btn">
                             <input type="submit" value="Guardar" class="btn btn-dark" name="guardar">
                         </div>

@@ -1,4 +1,4 @@
-<?php require_once("componentes/encabezado.php"); ?>
+<?php require_once("../controlador/ControladorEncabezado.php"); ?>
 <!-- DESDE AQUI -->
     <main id="menuPrincipal">
         <div class="row" style="height: 200px;background-color: blue;z-index:0;margin-top:15px;">

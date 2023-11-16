@@ -1,7 +1,3 @@
-<?php
-session_start(); 
-require("../funciones/funciones.php");
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -69,7 +65,7 @@ require("../funciones/funciones.php");
                 </div> -->
             </div>
             <div class="col-md-4">
-                <h2><?php echo prueba(); ?></h2>
+                <h2><?php echo "nombre area"; ?></h2>
             </div>
             <div class="col-md-4">
                 <ul id="usuario">

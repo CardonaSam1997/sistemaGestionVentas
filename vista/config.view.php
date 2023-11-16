@@ -1,4 +1,4 @@
-<?php require_once("componentes/encabezado.php"); ?>
+<?php require_once("../controlador/ControladorEncabezado.php"); ?>
     <main>
         <h2>CONFIGURACIONES</h2>    
     </main>
