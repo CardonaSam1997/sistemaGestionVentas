@@ -1,6 +1,7 @@
 <?php
 require_once("../modelo/Productos.php");
-//require("../funciones/funciones.php");
+require_once("../modelo/Notificacion.php");
+require("../funciones/funciones.php");
 
 $productos = new Producto();
 $listaProductos = $productos->traerTodosProductos();
@@ -32,24 +33,22 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 }
 
 //compararFechas
-$productoVencidos; //array que tenga los productos proximos a vencer
+$notificaciones;
+//aunq esto ya funciona
+//probar asi: $notificaciones = array();
 $listaFechasProductos = $productos->traerFechaVencimientoProductos(); //contiene las fechas de la BD
-//Recorre las filas de la BD
-foreach($listaFechasProductos as $fechaProductos){
-    //ME SACA ERROR EN ESTA PARTE
-    //almacena el valor que falta entre cada fecha
-    //echo $fechaProductos[0]['fechaVencimiento'];
-   //$fechaP = compararFechas("2023-11-30");
 
-//   echo compararFechas($fechaProductos[0]['fechaVencimiento']);
-    //compara valores
+foreach($listaFechasProductos as $fechaProductos){    
+   //falta organizar las fechas, para que se con fechas dinamicas y modificar el 
+   //numero del condicional    
+    $fechaP = compararFechas("2023-11-30");
     if($fechaP <=  15){
-   /*     echo "dentro dewl condicional 15";        
-        $productoVencidos = 
-        array($fechaP['codigo'] => $fechaP);*/
+        $notificaciones = new Notificacion($fechaProductos['codigo'],$fechaP);        
+        $notificaciones->guardarNotificacion($notificaciones->getCodigo(),$notificaciones->getDias());
+    }else{
+        //eliminar datos de notificaciones con truncate
     }
 }
-
 /* Por cada una de las iteraciones del ciclo foreach va a guardar
 el codigo del producto que tenga 5 o menos dias en comparacion de fechas y va
 a guardar la cantidad de dias que le quedan*/

@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-require("../funciones/funciones.php");
+//require("../funciones/funciones.php");
 
 
 if(!isset($_SESSION['usuario'])){
@@ -8,8 +8,8 @@ if(!isset($_SESSION['usuario'])){
 }
 
 
-if($_SERVER['REQUEST_METHOD']=='GET'){
-   echo "ENTRO.....";
+if($_SERVER['REQUEST_METHOD'] == 'GET'){
+  // echo "ENTRO..... al controladorEncabezado cerrar sesion";
    // print_r($_GET);       
     //session_destroy();
 }

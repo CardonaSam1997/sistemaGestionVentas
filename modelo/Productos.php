@@ -60,7 +60,6 @@ class Producto{
         }
     }
 
-
     public function traerFechaVencimientoProductos(){
         $query = "SELECT codigo,fechaVencimiento FROM productos";
         try{
