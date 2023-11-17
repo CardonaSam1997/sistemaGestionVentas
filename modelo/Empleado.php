@@ -12,7 +12,7 @@ class Empleado{
         $query = "SELECT * FROM empleados";
         try{
             $ps = $this->con->Conectar()->prepare($query);
-            $ps->execute();
+            $ps->execute();            
             $rs = $ps->fetchAll(PDO::FETCH_ASSOC);
             return $rs;
         }catch(PDOException $e){

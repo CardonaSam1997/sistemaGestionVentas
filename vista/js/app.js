@@ -19,6 +19,20 @@ $( document ).ready(function(){
 	});
    
 
+let r = $("#modificar").val();
+
+if(r != null){
+    console.log("el valor dle boton es: "+r);
+}
+    /*PODEMOS LLENAR UNA VARIABLE QUE VA A ESTAR "ESCONDIDA" DETRAS DE LA VISTA EN EL 
+    CONTROLADOR Y MANEJAR ESE DATO EN LA MODAL, UNA VEZ GUARDADO SE ELIMINA EL 
+    CONTENIDO DE DICHA VARIABLE
+    */
+$(".cerrarModal").click(function(){		
+    r = null;
+    console.log(r);
+});
+
     //DURA MUY POCO TIEMPO
    /* $("#recuperar").click(function(){		
         $valor = true;

@@ -27,13 +27,13 @@
                         <!-- a PELEAR NUEVAMENTE CON LOS PUNTOS :/ -->
                         <a href="menuPrincipal.php?pagina=Menú principal">
                             <li>
-                                <i class="fa-solid fa-shop fa-xl" style="color: #ffffff;"></i>
+                                <i class="fa-solid fa-shop fa-xl" ></i>
                                 Menu principal
                             </li>
                         </a>
                         <a href="inventario.php?pagina=Inventario">
                             <li>
-                                <i class="fa-solid fa-bag-shopping fa-xl" style="color: #ffffff;"></i>
+                                <i class="fa-solid fa-bag-shopping fa-xl"></i>
                                 Productos
                             </li>                            
                         </a>
@@ -45,13 +45,13 @@
                         </a>
                         <a href="configuracion.php?pagina=Configuración">
                             <li>
-                                <i class="fa-solid fa-gear fa-xl" style="color: #ffffff;"></i>
+                                <i class="fa-solid fa-gear fa-xl"></i>
                                 Configuración
                             </li>
                         </a>
                         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET"><!-- AGREGAR input para enviar cerrar sesion por url -->
                             <li>
-                                <button type="submit" name="cerrar" style="background-color: red;border:none;color:white;" value="cerrar">
+                                <button type="submit" name="cerrar" style="background-color: #a51d2d;border:none;color:white;" value="cerrar">
                                     <i class="fa-solid fa-door-open fa-xl" style="color: #ffffff;"></i>
                                     Cerrar sesión
                                 </button>                                
@@ -72,12 +72,11 @@
             <div class="col-md-4">
                 <ul id="usuario">
                     <li>
-                        <!-- AGREGAR UN CONDICIONAL -->
-                        <!-- si en notificacion hay un nuevo registro y no se ha visto 
-                        se muestra la campana que se mueve(shake)-->
-                        <i class="fa-solid fa-bell fa-shake fa-xl" style="color: #e66100;"></i>
-                        <!-- De lo contrario, se muestra la campana que esta quieta-->
-                        <i class="fa-solid fa-bell fa-xl" style="color: #e66100;"></i>
+                        <?php if($respuesta == false): ?>
+                            <i class="fa-solid fa-bell fa-shake fa-xl" style="color: #e66100;"></i>
+                        <?php else: ?>                        
+                            <i class="fa-solid fa-bell fa-xl" style="color: #e66100;"></i>
+                        <?php endif; ?>
                     </li>                    
                     <li> <!-- cambiar icono por imagen-->                        
                         <h6><?php echo $_SESSION['usuario']; ?></h6>

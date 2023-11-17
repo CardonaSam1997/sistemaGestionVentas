@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 require_once("../modelo/Productos.php");
 require_once("../modelo/Notificacion.php");
 require("../funciones/funciones.php");
@@ -16,12 +18,14 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         $nombre = $_GET['nombre'];
         $marca = $_GET['marca'];
         $precio = $_GET['precio'];
+        $precio = $_GET['unidad'];
         $categoria = $_GET['categoria'];
         $fechaV = $_GET['fechaV'];
-        if(empty($codigo) || empty($nombre) || empty($marca) || empty($precio)){            
+        if(empty($codigo) || empty($nombre) || empty($marca) || empty($precio) || empty($unidad)){            
             $error = "Por favor rellenar todos los campos!!";
         }else{
-            $r=$productos->guardarProductos($codigo,$nombre,$marca,$precio,$categoria,$fechaV);
+            //donde uso esta r? yo creo que no la uso
+            $r=$productos->guardarProductos($codigo,$nombre,$marca,$precio,$unidad,$categoria,$fechaV);
             $mss = "Producto guardado exitosamente!";
         }        
     }else if(isset($_GET['eliminar'])){
@@ -29,9 +33,10 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         print_r($_GET);
         $id = $_GET['eliminar'];
         $productos->eliminarProductos($id);
-    }    
+    }
 }
 
+//INTENTAMOS LA MODAL PARA PODER TERMINAR PRODUCTOS. HACER UN COPIA Y PEGA Y TERMINAR EMPLEADOS
 //compararFechas
 $notificaciones;
 //aunq esto ya funciona
@@ -40,7 +45,8 @@ $listaFechasProductos = $productos->traerFechaVencimientoProductos(); //contiene
 
 foreach($listaFechasProductos as $fechaProductos){    
    //falta organizar las fechas, para que se con fechas dinamicas y modificar el 
-   //numero del condicional    
+   //numero del condicional  
+   //RECORDAR QUE LAS NOTIFICACION VAN POR FECHA DE VENCIMIENTO  
     $fechaP = compararFechas("2023-11-30");
     if($fechaP <=  15){
         $notificaciones = new Notificacion($fechaProductos['codigo'],$fechaP);        

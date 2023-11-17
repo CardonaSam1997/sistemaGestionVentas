@@ -1,19 +1,16 @@
------------
+-------
+ver que tan posible es la idea de que al admin se le notifiquen las acciones de los empleados
+en cuanto a crud de productos y mas
 
----------------
 
-
--------------
-
--------------------
+---------
+dividir las funciones, una a una
+en archivos diferentes
 
 
 ------------
-
------------
-
---------------------
-
+ver si hay forma de cuadrar los titulos del menu(la barra roja)
+que se queden quietos
 ----
-ver que tan posible es la idea de que al admin se le notifiquen las acciones de los empleados
-en cuanto a crud de productos y mas
+EXCEL 
+para productos y para empleados y las ganancias de la empresa(menu principal)

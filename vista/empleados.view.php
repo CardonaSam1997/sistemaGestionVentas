@@ -8,42 +8,42 @@
                         <div class="input-group">
                             <div class="mb-3">
                                 <label for="codigo" class="form-label">Codigo Empleado:</label>
-                                <input type="text" class="form-control" id="codigo" placeholder="Codigo" name="numEmp" value="<?php echo $_GET['numEmp']; ?>">
+                                <input type="text" class="form-control" id="codigo" placeholder="Codigo" name="numEmp" value="<?php if(isset($_GET['numEmp'])) echo  $_GET['numEmp']; ?>">
                             </div>
                             <!-- HAY QUE MIRAR LOS ESTILOS, para intentar cuadrar el margin de cada uno de los mb-3 -->
                             <div class="mb-3"><!-- SI APLICO EL MARGIN-LEFT AQUI FUNCIONA, EN EL CSS NO -->
                                 <label for="cedula" class="form-label">Cedula:</label>
-                                <input type="text" class="form-control" id="cedula" placeholder="cedula" name="cedula" value="<?php echo $_GET['cedula']; ?>">
+                                <input type="text" class="form-control" id="cedula" placeholder="cedula" name="cedula" value="<?php if(isset($_GET['cedula'])) echo  $_GET['cedula']; ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="nombre" class="form-label">Nombre:</label>
-                                <input type="text" class="form-control" id="nombre" placeholder="nombre" name="nombre" value="<?php echo $_GET['nombre']; ?>">
+                                <input type="text" class="form-control" id="nombre" placeholder="nombre" name="nombre" value="<?php if(isset($_GET['nombre'])) echo  $_GET['nombre']; ?>">
                             </div>
                         </div>
                         <div class="input-group">
                             <div class="mb-3">
                                 <label for="edad" class="form-label">Edad:</label>
-                                <input type="text" class="form-control" id="edad" placeholder="edad" name="edad" value="<?php echo $_GET['edad']; ?>">
+                                <input type="text" class="form-control" id="edad" placeholder="edad" name="edad" value="<?php if(isset($_GET['edad'])) echo $_GET['edad']; ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="telefono" class="form-label">telefono:</label>
-                                <input type="text" class="form-control" id="telefono" placeholder="telefono del empleado" name="telefono" value="<?php echo $_GET['telefono']; ?>">
+                                <input type="text" class="form-control" id="telefono" placeholder="telefono del empleado" name="telefono" value="<?php if(isset($_GET['telefono']))  echo $_GET['telefono']; ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="correo" class="form-label">correo:</label>
-                                <input type="email" class="form-control" id="correo" placeholder="correo del empleado" name="correo" value="<?php echo $_GET['correo']; ?>">
+                                <input type="email" class="form-control" id="correo" placeholder="correo del empleado" name="correo" value="<?php if(isset($_GET['correo'])) echo $_GET['correo']; ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="direccion" class="form-label">direccion:</label>
-                                <input type="text" class="form-control" id="direccion" placeholder="direccion del empleado" name="direccion" value="<?php echo $_GET['direccion']; ?>">
+                                <input type="text" class="form-control" id="direccion" placeholder="direccion del empleado" name="direccion" value="<?php if(isset($_GET['direccion']))  echo $_GET['direccion']; ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="cargo" class="form-label">cargo:</label>
-                                <input type="text" class="form-control" id="cargo" placeholder="cargo del empleado" name="cargo" value="<?php echo $_GET['cargo']; ?>">
+                                <input type="text" class="form-control" id="cargo" placeholder="cargo del empleado" name="cargo" value="<?php if(isset($_GET['cargo']))  echo $_GET['cargo']; ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="salario" class="form-label">salario:</label>
-                                <input type="number" class="form-control" id="salario" placeholder="salario del empleado" name="salario" value="<?php echo $_GET['salario']; ?>">
+                                <input type="number" class="form-control" id="salario" placeholder="salario del empleado" name="salario" value="<?php if(isset($_GET['salario']))  echo $_GET['salario']; ?>">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Fecha de contratación:</label>
@@ -70,11 +70,12 @@
         </div>        
         <div class="row">
             <div class="col-md-12">
+                <!-- ORGANIZAR EL TAMAÑO DE LA TABLA -->
                 <div class="cont-table">
                     <table  class="table">
                         <thead>
                             <tr>                                
-                                <th scope="col">Codigo Emp</th>
+                                <th scope="col">Codigo</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Correo</th>
                                 <th scope="col">Dirección</th>
@@ -96,12 +97,12 @@
                                     <td><?php echo $empleado['fecha_contratacion']; ?></td>
                                     <td> 
                                         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET">
-                                            <button type="submit" class="btn btn-danger" name="eliminar" value="<?php echo $empleado['codigo']; ?>">
+                                            <button type="submit" class="btn btn-danger" name="eliminar" value="<?php if(isset($_GET['eliminar'])) echo $empleado['id']; ?>">
                                                 <i class="fa-solid fa-trash" style="color: #fafcff;" ></i>
                                             </button>
                                             <!-- USAR JS para que aparezca una modal al dar clic en modificar. 
                                             se debe conservar el id del empleado a modificar -->
-                                            <button type="submit" class="btn btn-success" name="modificar" value="<?php echo $empleado['codigo']; ?>">
+                                            <button type="submit" class="btn btn-success" name="modificar" value="<?php if(isset($_GET['modificar'])) echo $empleado['id']; ?>">
                                                 <i class="fa-solid fa-pencil" style="color: #ffffff;"></i>
                                             </button>
                                         </form>

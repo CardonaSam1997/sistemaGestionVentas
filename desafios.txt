@@ -1,3 +1,7 @@
+dia 1: 10h
+dia 2: 2h
+dia 3: 8h
+dia 4: aun no llega
 DESAFIOS DEL PROCESO
 1- a medida que iba construyendo la aplicacion, empece a ver distintas
 formas para mejorar la primer idea
@@ -14,9 +18,20 @@ como podia desarrollar mis ideas
 6- Organizar los estilos desde el css, me genera cierto desafio
 
 7- indecision, a medida que avanzaba como no tenia reglas "estrictas" le iba cambiando
-el nombre a los titulos
+el nombre a los titulos, archivos, etc
 
 8- La decision de como guardar las notificaciones, al parecer aqui no existen los arraylist
 como en java. Al principio queria crear una lista de tipo objeto para guardar los objetos ahi
 varios dias, pero esa lista iba a ir creciendo a medida que los productos se agotaran.
-Etonces el array creceria cada vez mas, asi que decidi guardarlo en la BD
+Etonces el array creceria cada vez mas(creo que afectaria rendimiento de software),
+asi que decidi guardarlo en la BD
+
+9- cuando el proyecto empieza a crecer y cambiamos algunas cosas hay problemas
+ANALIZAR POR QUE EN EMPLEADOS NECESITO EL DOCUMENTO DE FUNCIONES PARA QUE FUNCIONE
+LA TABLA Y FUNCIONE EL MENU, QUE TIENE QUE VER EL MENU CON EL ARCHIVO FUCIONES.PHP??
+
+La hoja empleados tiene fechaHoy(una funcion), al quitar la importacion de funciones
+del encabezado el error que me presentaba, era por que empleados.view no tenia importada la hoja de funciones
+y eso me traia problemas en el menu y la tabla empleados
+
+10- 

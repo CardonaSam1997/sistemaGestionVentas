@@ -1,5 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 require_once("../modelo/Empleado.php");
+require("../funciones/funciones.php");
 $empleados = new Empleado();
 $listaEmpleados = $empleados->traerTodosEmpleados();
 

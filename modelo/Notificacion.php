@@ -43,7 +43,7 @@ class Notificacion{
             $ps->bindParam(":codigoP",$codigoP);
             $ps->bindParam(":dias",$dias);            
 //            $ps->bindParam(":idEmpl",$idEmpl);
-            $ps->execute();
+            $ps->execute();            
         }catch(Exception $e){
             error_log("ERROR al guardar la notificacion: ".$e->getMessage());
         }finally{
@@ -51,6 +51,23 @@ class Notificacion{
             $con->desconectar();
         }
     }
+
+    public static function obtenerNotificaciones(){        
+        $query = "SELECT * FROM notificaciones";
+        $con = new Conexion();
+        try{
+            $ps = $con->Conectar()->prepare($query);
+            $ps->execute();
+            $rs = $ps->fetchAll(PDO::FETCH_ASSOC);
+            return $rs;
+        }catch(Exception $e){
+            error_log("ERROR al guardar la notificacion: ".$e->getMessage());
+        }finally{
+            $ps = null;
+            $rs = null;
+            $con->desconectar();
+        }
+    }    
     
 }
 

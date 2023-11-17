@@ -95,7 +95,7 @@ main .capa{
     text-align: center;
     margin-top: 150px;
     padding-left: 0;  
-    position: relative;
+    position: fixed;
     left: -200px;
     transition: 1s;
 }
@@ -119,6 +119,7 @@ main .capa{
     width: 200px;
     padding: 15px 0px;
     transition: 1s;
+    color: #fff;
 }
 
 .abrirMenuDespl{
