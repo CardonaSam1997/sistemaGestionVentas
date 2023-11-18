@@ -38,3 +38,10 @@ y eso me traia problemas en el menu y la tabla empleados
 10- Creacion del excel, tenia un error de versiones entre libreria y php.
 A parte estoy en linux y me salieron varios errores por falta de permisos.
 ahora mismo muestra las columnas pero no lo rellena con el valor de la BD
+
+- aAalizar la logica de como funcionaba el excel para modificarlo a mi gusto
+fue de las experiencias mas cheveres, ademas no fue nada dificil de entender,
+estoy progresando!!
+
+
+

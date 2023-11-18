@@ -39,13 +39,13 @@ class Producto{
         VALUES (:codigo,:nombre,:marca,:precio,:unidad,:categoria,:fechaV)";
         try{//que retorna cuando el valor esta vacio? array vacio?
             $ps = $this->con->Conectar()->prepare($query);
-            $ps->bindParam(":codigo",$codigo);
-            $ps->bindParam(":nombre",$nombre);
-            $ps->bindParam(":marca",$marca);
-            $ps->bindParam(":precio",$precio);
-            $ps->bindParam(":unidad",$unidad);
-            $ps->bindParam(":categoria",$categoria);
-            $ps->bindParam(":fechaV",$fechaV);
+            $ps->bindParam(":codigo",$codigo, PDO::PARAM_STR);
+            $ps->bindParam(":nombre",$nombre, PDO::PARAM_STR);
+            $ps->bindParam(":marca",$marca,PDO::PARAM_STR);
+            $ps->bindParam(":precio",$precio,PDO::PARAM_STR);
+            $ps->bindParam(":unidad",$unidad,PDO::PARAM_INT);
+            $ps->bindParam(":categoria",$categoria,PDO::PARAM_STR);
+            $ps->bindParam(":fechaV",$fechaV,PDO::PARAM_STR);
             $ps->execute();                        
         }catch(PDOException $e){
             error_log("ERROR en guardarProductos: ".$e->getMessage());

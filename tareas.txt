@@ -26,3 +26,8 @@ tiene que ser un js fetch y asincronico (apis);
 opciones:
 slim microFramework
 Flight framework facil de usar
+
+-----------
+PDO
+agregar a las consultas, para evitar errores de entrega de datos y por seguridad
+PDO::PARAM_STR
