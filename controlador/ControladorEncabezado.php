@@ -17,9 +17,13 @@ if(!isset($_SESSION['usuario'])){
 
 //CERRAR SESION
 if($_SERVER['REQUEST_METHOD'] == 'GET'){
+    print_r($_GET);
+    //ME OBLIGA A PRESIONAR 2 VECES PARA CERRAR SESION
+    if(!empty($_GET['cerrar'])){
+        session_destroy();
+    }
   // echo "ENTRO..... al controladorEncabezado cerrar sesion";
-   // print_r($_GET);       
-    //session_destroy();
+   // print_r($_GET);           
 }
 
 require("../vista/componentes/encabezado.php");

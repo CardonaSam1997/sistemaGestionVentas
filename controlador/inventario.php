@@ -1,10 +1,12 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+//Importar
 require_once("../modelo/Productos.php");
 require_once("../modelo/Notificacion.php");
 require("../funciones/funciones.php");
 
+//Instanciar
 $productos = new Producto();
 $listaProductos = $productos->traerTodosProductos();
 
@@ -33,6 +35,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         print_r($_GET);
         $id = $_GET['eliminar'];
         $productos->eliminarProductos($id);
+    }else if(isset($_GET['modificar'])){
+        echo "dentro de modificar <br>";        
     }
 }
 
@@ -50,7 +54,7 @@ foreach($listaFechasProductos as $fechaProductos){
     $fechaP = compararFechas("2023-11-30");
     if($fechaP <=  15){
         $notificaciones = new Notificacion($fechaProductos['codigo'],$fechaP);        
-        $notificaciones->guardarNotificacion($notificaciones->getCodigo(),$notificaciones->getDias());
+//      $notificaciones->guardarNotificacion($notificaciones->getCodigo(),$notificaciones->getDias());
     }else{
         //eliminar datos de notificaciones con truncate
     }
@@ -58,6 +62,7 @@ foreach($listaFechasProductos as $fechaProductos){
 /* Por cada una de las iteraciones del ciclo foreach va a guardar
 el codigo del producto que tenga 5 o menos dias en comparacion de fechas y va
 a guardar la cantidad de dias que le quedan*/
+
 
 
 require("../vista/inventario.view.php");

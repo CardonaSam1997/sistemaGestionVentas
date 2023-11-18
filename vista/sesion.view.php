@@ -28,7 +28,7 @@
                             <label for="floatingInput">Usuario:</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="password" placeholder="*********" name="passw" class="form-control" id="floatingPassword" >
+                            <input type="text" placeholder="*********" name="passw" class="form-control" id="floatingPassword" >
                             <label for="floatingPassword">Contraseña:</label>
                         </div>
                         <?php if(!empty($error)): ?>

@@ -21,10 +21,12 @@ class IniciarSesion{
             $ps->execute();
             $rs = $ps->fetch(PDO::FETCH_ASSOC);            
             //DEBERIA IMPRIMIR PARA VER COMO SALE ESTO??
-            $_SESSION['usuario'] = $rs['nombre'];   
-            $_SESSION['rol'] = $rs['rol'];
-            $salida = $this->compararPassword($passw,$rs['contrasena']);
-            return $salida;
+            if(is_array($rs)){
+                $_SESSION['usuario'] = $rs['nombre'];
+                $_SESSION['rol'] = $rs['rol'];
+                $salida = $this->compararPassword($passw,$rs['contrasena']);
+                return $salida;
+            }
         }catch(PDOException $e){
             error_log("ERROR en verificarUsuario: ".$e->getMessage());
         }finally{

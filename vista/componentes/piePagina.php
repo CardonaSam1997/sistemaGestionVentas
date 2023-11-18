@@ -6,7 +6,7 @@
     <footer>        
         <div class="row" style="height: 50px;background-color: white;box-shadow: 1px 1px 1px 1px grey;">
             <div class="col-md-12" style="text-align: center;">
-                <p id="saludos">Autor - Yo</p>
+                <p id="saludos">Sam Cardona</p>
             </div>
         </div>
     </footer>

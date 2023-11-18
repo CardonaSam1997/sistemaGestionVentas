@@ -14,3 +14,15 @@ que se queden quietos
 ----
 EXCEL 
 para productos y para empleados y las ganancias de la empresa(menu principal)
+
+
+
+no me convence el formulario ancho, me gusta mas largo 
+
+----------
+MODAL
+la modal ya esta, pero me gustaria que la pagina no se refrescara al enviar la informacion
+tiene que ser un js fetch y asincronico (apis);
+opciones:
+slim microFramework
+Flight framework facil de usar

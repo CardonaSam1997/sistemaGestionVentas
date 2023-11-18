@@ -17,62 +17,17 @@ $( document ).ready(function(){
             num = 0;
         }
 	});
-   
+       
+});
 
-let r = $("#modificar").val();
 
-if(r != null){
-    console.log("el valor dle boton es: "+r);
+function mostrarModal(codigoProducto) {
+    // Aquí puedes hacer lo que necesites con el código del producto
+    // Por ejemplo, puedes guardarlo en una variable y luego mostrarlo en la modal
+    var codigoSeleccionado = codigoProducto.toString().padStart(3, '0');
+
+    // Muestra el código en la modal o realiza otras operaciones necesarias
+    document.getElementById('codigoProductoModal').innerHTML = codigoSeleccionado;
 }
-    /*PODEMOS LLENAR UNA VARIABLE QUE VA A ESTAR "ESCONDIDA" DETRAS DE LA VISTA EN EL 
-    CONTROLADOR Y MANEJAR ESE DATO EN LA MODAL, UNA VEZ GUARDADO SE ELIMINA EL 
-    CONTENIDO DE DICHA VARIABLE
-    */
-$(".cerrarModal").click(function(){		
-    r = null;
-    console.log(r);
-});
-
-    //DURA MUY POCO TIEMPO
-   /* $("#recuperar").click(function(){		
-        $valor = true;
-	});*/
-});
-
-console.log("hola");
-//FUNCIONA PARA EXTRAER ELEMENTOS DEL HTML
-var a = document.getElementById('saludos');
-console.log(a.textContent);
 
 
-//como puedo hacer para verificar el valor de aqui?
-/*$valor = false;
-if($valor== true){
-    Swal.fire({
-        title: "¡Buen trabajo!",
-        text: "Revisa tu correo para recuperar la contraseña!!",
-        icon: "success"
-    });
-}*/
-
-
-/*iniciar sesion
-    const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 2000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        }
-    });
-    Toast.fire({
-        icon: "success",
-        title: "Signed in successfully"
-    });
-
-});
-
-*/

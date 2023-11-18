@@ -72,6 +72,8 @@
             <div class="col-md-12">
                 <!-- ORGANIZAR EL TAMAÑO DE LA TABLA -->
                 <div class="cont-table">
+                    <!-- ORGANIZAR DESDE CSS -->
+                    <button value="Descargar Excel" style="background-color: green;border-color: greenyellow;">Descargar Excel</button>
                     <table  class="table">
                         <thead>
                             <tr>                                

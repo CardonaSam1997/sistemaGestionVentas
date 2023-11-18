@@ -190,3 +190,12 @@ main .capa{
 .cont-form .input-group .mb-3{
     padding-left: 50px;
 }
+
+/* FORMULARIO MODAL */
+.modal-body .input-group .mb-3{
+    padding-left:30px;
+}
+
+.modal-body .input-group .mb-3 input{
+    width:200px;
+}

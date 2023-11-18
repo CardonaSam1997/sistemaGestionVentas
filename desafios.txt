@@ -1,7 +1,8 @@
 dia 1: 10h
 dia 2: 2h
 dia 3: 8h
-dia 4: aun no llega
+dia 4: Se descanso
+dia 5: 2h
 DESAFIOS DEL PROCESO
 1- a medida que iba construyendo la aplicacion, empece a ver distintas
 formas para mejorar la primer idea
@@ -34,4 +35,6 @@ La hoja empleados tiene fechaHoy(una funcion), al quitar la importacion de funci
 del encabezado el error que me presentaba, era por que empleados.view no tenia importada la hoja de funciones
 y eso me traia problemas en el menu y la tabla empleados
 
-10- 
+10- Creacion del excel, tenia un error de versiones entre libreria y php.
+A parte estoy en linux y me salieron varios errores por falta de permisos.
+ahora mismo muestra las columnas pero no lo rellena con el valor de la BD
