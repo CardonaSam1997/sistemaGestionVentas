@@ -1,18 +1,15 @@
 <?php
-//muestra los errores
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
 //Librerias externas o clases creadas por mi
+require_once("Conexion.php");
 require("../vendor/autoload.php");
-require("../modelo/Conexion.php");
 
 //LIBRERIAS A USAR DE X PAQUETE
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Excel{
-    public $con;
+
+    private $con;
 
     public function __construct(){        
         $this->con = new Conexion();        
@@ -22,7 +19,7 @@ class Excel{
      * la tabla ingresada como parametro 
      * @Param tabla @Return cantidad columnas
      */
-    public function numeroColumnas($tabla){;
+    private function numeroColumnas($tabla){;
         $query = "SELECT COUNT(*) as totalColumna FROM information_schema.columns
         WHERE table_schema = 'sistemaGestion' AND table_name = '$tabla'";
         try{
@@ -44,7 +41,7 @@ class Excel{
      * en un array asociativo y lo retorna
      * @Param $tabla @Return $columnas = []
      */
-    public function obtenerNombresColumnas($tabla){
+    private function obtenerNombresColumnas($tabla){
         $query = "SHOW COLUMNS FROM $tabla";
         $columnas = [];        
         try{
@@ -78,10 +75,7 @@ class Excel{
             //instancia
             $spreadsheet = new Spreadsheet();
             $sheet = $spreadsheet->getActiveSheet();
-            
-            // Encabezados de columna
-            //cambiar los nombres dinamicamente por los nombres de las columnas de la bd
-            //$columnas = ["codigo","nombre","marca","precio","unidad","categoria","fechaVencimiento"];
+                       
             $columnas = $this->obtenerNombresColumnas($tabla);
             $col = 'A';
             //Se agregan las columnas al archivo .xls
@@ -90,7 +84,7 @@ class Excel{
                 $col++;                
             }
 
-            // Datos de MySQL
+            // Datos de Mysql
             $fila = 2;
             while($row = $ps->fetch(PDO::FETCH_ASSOC)){
                 $col = 'A';
@@ -106,7 +100,7 @@ class Excel{
             $archivo_excel = "/opt/lampp/htdocs/sistemaGestionVentas/$tabla.xls";
             $writer->save($archivo_excel);            
             // Cerrar la conexión a la base de datos
-            echo "Datos exportados correctamente a Excel en $archivo_excel";
+            //echo "Datos exportados correctamente a Excel en $archivo_excel";
             //-------
         }catch(Exception $e){
             error_log("ERROR EN crearExcel: ".$e->getMessage());
@@ -118,11 +112,12 @@ class Excel{
 
 }
 
+/* Aqui funciona el excel, pero cuando intento instanciar
+no me funciona
 $object = new Excel();
 echo "estoy probando excel<br>----------------------<br>";
-$object->crearExcel("empleados");
-//$object->numeroColumnas();//devuelve el numero de columnas de la tabla
-//$object->obtenerNombresColumnas("productos")
+$object->crearExcel("empleados");*/
+
 
 
 ?>

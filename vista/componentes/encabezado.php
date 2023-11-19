@@ -31,13 +31,13 @@
                                 Menu principal
                             </li>
                         </a>
-                        <a href="inventario.php?pagina=Inventario">
+                        <a href="inventario.php?pagina=productos">
                             <li>
                                 <i class="fa-solid fa-bag-shopping fa-xl"></i>
                                 Productos
                             </li>                            
                         </a>
-                        <a href="empleados.php?pagina=Empleados">
+                        <a href="empleados.php?pagina=empleados">
                             <li>
                                 <i class="fa-solid fa-users fa-xl"></i>
                                 Empleados
@@ -51,7 +51,7 @@
                         </a>
                         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET"><!-- AGREGAR input para enviar cerrar sesion por url -->
                             <li>
-                                <button type="submit" name="cerrar" style="background-color: #a51d2d;border:none;color:white;" value="cerrar">
+                                <button type="submit" name="cerrar" class="cerrar" value="cerrar">
                                     <i class="fa-solid fa-door-open fa-xl" style="color: #ffffff;"></i>
                                     Cerrar sesión
                                 </button>                                
@@ -61,29 +61,28 @@
                 </div>
                 <div id="menuHamburg">                
                    <i class="fa-solid fa-bars fa-2xl " style="color: #deddda;"></i>
-                </div>
-                <!-- <div style="position: absolute;right:-30px;">
-                    <h2 style="text-align:right;padding-top:30px;right:-10px;">hola php</h2>
-                </div> -->
+                </div>                
             </div>
             <div class="col-md-4">
-                <h2><?php echo "nombre area"; ?></h2>
+                <!-- AQUI PENSABA PONER EL NOMBRE DEL AREA EN EL QUE ESTABA -->
             </div>
             <div class="col-md-4">
                 <ul id="usuario">
                     <li>
-                        <?php if($respuesta == false): ?>
+                        <?php if($respuesta === false): ?>
                             <i class="fa-solid fa-bell fa-shake fa-xl" style="color: #e66100;"></i>
                         <?php else: ?>                        
                             <i class="fa-solid fa-bell fa-xl" style="color: #e66100;"></i>
                         <?php endif; ?>
                     </li>                    
-                    <li> <!-- cambiar icono por imagen-->                        
+                    <li>
                         <h6><?php echo $_SESSION['usuario']; ?></h6>
-                        <p><?php echo $_SESSION['rol']; ?></p>                        
+                        <p><?php echo $_SESSION['rol']; ?></p>
                     </li>
                     <li>
-                        <i class="fa-solid fa-user fa-2xl" style="color: #a51d2d;"></i>                        
+                        <div class="cont-user">
+                            <i class="fa-solid fa-user fa-2xl" style="color: #a51d2d;"></i>                        
+                        </div>
                     </li>
                 </ul>
             </div>

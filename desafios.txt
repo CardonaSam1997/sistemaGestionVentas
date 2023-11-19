@@ -2,7 +2,9 @@ dia 1: 10h
 dia 2: 2h
 dia 3: 8h
 dia 4: Se descanso
-dia 5: 2h
+dia 5: 4h
+dia 6:
+
 DESAFIOS DEL PROCESO
 1- a medida que iba construyendo la aplicacion, empece a ver distintas
 formas para mejorar la primer idea
@@ -39,9 +41,11 @@ y eso me traia problemas en el menu y la tabla empleados
 A parte estoy en linux y me salieron varios errores por falta de permisos.
 ahora mismo muestra las columnas pero no lo rellena con el valor de la BD
 
-- aAalizar la logica de como funcionaba el excel para modificarlo a mi gusto
+- Analizar la logica de como funcionaba el excel para modificarlo a mi gusto
 fue de las experiencias mas cheveres, ademas no fue nada dificil de entender,
 estoy progresando!!
 
+11- Un error (duplicacion de clase), mi desconocimiento entre require y require_once
 
+12- 
 

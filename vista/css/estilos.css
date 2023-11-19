@@ -58,27 +58,37 @@ main .capa{
 #menu .row .col-md-4:nth-child(3) ul li{
     display: inline-block;
 }
+#usuario{    
+    position: relative;
+    width: 300px;
+}
 #usuario p{
-    text-align: right;
+    text-align: right;    
 }
 #usuario li:nth-child(2){
-    padding-top: 30px;
+    padding-top: 30px;    
 }
-/*#usuario li:nth-child(3){
-    position: relative;
-    background-color: aqua;
+#usuario .fa-bell{
+    position: absolute;    
+    top: 40px;
+    left: 0;
+    cursor: pointer;
 }
-#usuario li:nth-child(3) div{/*PANEL DE PERFIL, ORGANIZAR   
-    width: 200px;
-    height: 330px;
-    background-color: black;
+/* USUARIO IMG */
+#usuario .cont-user{
+    padding: 10px;
+    border-radius: 3px;
+    background-color: grey;
+    height: 50px;
+    width: 50px;
     position: absolute;
-    right: -100px;
-    
+    bottom: 15px;
+    right: 25px;
+    border: 2px solid black;    
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-#usuario li:nth-child(3):hover div{
-    display: block;
-}*/
 /* BARRA DESPLEGABLE */
 .menuDespl{    
     width: 53px;
@@ -198,4 +208,19 @@ main .capa{
 
 .modal-body .input-group .mb-3 input{
     width:200px;
+}
+/* BTON EXCEL*/
+.btnExcel{
+    background-color: green;
+    border-color: greenyellow;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+/* BTN CERRAR SESION */
+.cerrar{
+    background-color: #a51d2d;
+    border:none;
+    color:white;
+    font-weight: bold;
 }

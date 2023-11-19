@@ -4,10 +4,13 @@ error_reporting(E_ALL);
 //Importar
 require_once("../modelo/Productos.php");
 require_once("../modelo/Notificacion.php");
-require("../funciones/funciones.php");
+require_once("../modelo/Excel.php");
+require_once("../funciones/funciones.php");
 
 //Instanciar
 $productos = new Producto();
+$excel = new Excel();
+
 $listaProductos = $productos->traerTodosProductos();
 
 
@@ -25,22 +28,29 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         $fechaV = $_GET['fechaV'];
         if(empty($codigo) || empty($nombre) || empty($marca) || empty($precio) || empty($unidad)){            
             $error = "Por favor rellenar todos los campos!!";
-        }else{
-            //donde uso esta r? yo creo que no la uso
-            $r=$productos->guardarProductos($codigo,$nombre,$marca,$precio,$unidad,$categoria,$fechaV);
+        }else{            
+            $productos->guardarProductos($codigo,$nombre,$marca,$precio,$unidad,$categoria,$fechaV);
             $mss = "Producto guardado exitosamente!";
         }        
-    }else if(isset($_GET['eliminar'])){
-        echo "entro en eliminar <br>";
-        print_r($_GET);
+    }else if(isset($_GET['eliminar'])){        
         $id = $_GET['eliminar'];
         $productos->eliminarProductos($id);
+        $listaProductos = $productos->traerTodosProductos();
     }else if(isset($_GET['modificar'])){
-        echo "dentro de modificar <br>";        
+        $codigo = $_GET['codigo'];
+        $nombre = $_GET['nombre'];
+        $marca = $_GET['marca'];
+        $precio = $_GET['precio'];
+        $precio = $_GET['unidad'];
+        $categoria = $_GET['categoria'];
+        $fechaV = $_GET['fechaV'];
+        echo "dentro de modificar <br>";  
+        $productos->actualizarProductos($codigo,$nombre,$marca,$precio,$unidad,$categoria,$fechaV);      
+        $listaProductos = $productos->traerTodosProductos();
     }
 }
 
-//INTENTAMOS LA MODAL PARA PODER TERMINAR PRODUCTOS. HACER UN COPIA Y PEGA Y TERMINAR EMPLEADOS
+
 //compararFechas
 $notificaciones;
 //aunq esto ya funciona
@@ -63,6 +73,12 @@ foreach($listaFechasProductos as $fechaProductos){
 el codigo del producto que tenga 5 o menos dias en comparacion de fechas y va
 a guardar la cantidad de dias que le quedan*/
 
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if(isset($_POST['excel'])){        
+        $excel->crearExcel("productos");
+    }
+}
 
 
 require("../vista/inventario.view.php");

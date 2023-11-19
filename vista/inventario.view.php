@@ -65,8 +65,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="cont-table">
-                    <!-- COLOCAR COLOR DESDE CSS -->
-                    <button value="Descargar Excel" style="background-color: green;border-color: greenyellow;">Descargar Excel</button>
+                    <!-- Descargar excel -->
+                    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+                        <button class="btnExcel" type="submit" name="excel">Descargar Excel</button>
+                    </form>
                     <table  class="table">
                         <thead>
                             <tr>
@@ -179,16 +181,18 @@
                         <!-- PARA QUE SE ENVIE LA INFORMACION SIN QUE LA PAGINA
                     SE REFRESQUE, ES NECESARIO USAR UN API Y ENVIAR LOS 
                 VALORES POR JS A LA URL DE LA API QUE ME PERMITE HACER EL REGISTRO
-            POR MEDIO DE UN JASON QUE TENDRIA LAS CARACTERISTICAS DE MI OBTEJO (PRODUCTO)-->
+            POR MEDIO DE UN JASON QUE TENDRIA LAS CARACTERISTICAS DE MI OBTEJO (PRODUCTO, pero
+        ahora mismo no hare eso -->
                         <div class="cont-btn">
                             <!-- <input type="submit" value="Actualizar" class="btn btn-dark" name="modificar">-->
                         </div>
-                    </form>    
+                    
                 </div>
                 <!-- PIE MODAL -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cerrarModal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary" name="modificar">Actualizar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cerrarModal">Cerrar</button>                    
+                        <button type="submit" class="btn btn-primary" name="modificar">Actualizar</button>
+                    </form>
                 </div>                
             </div>
         </div>

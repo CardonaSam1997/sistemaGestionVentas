@@ -1,4 +1,7 @@
 $( document ).ready(function(){
+
+    //NO FUNCIONA ONCLIC Y PHP
+
     //si clic
     $(".passw").click(function(){		
         $(".capa").addClass("moverIzquierda");

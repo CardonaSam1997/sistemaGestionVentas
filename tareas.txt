@@ -31,3 +31,16 @@ Flight framework facil de usar
 PDO
 agregar a las consultas, para evitar errores de entrega de datos y por seguridad
 PDO::PARAM_STR
+
+
+-----
+EXCEL
+hay que hacer que los archivos excel se guarden en la carpeta de descargas del equipo
+
+----
+FECHA
+la fecha esta adelantada por un dia, mirar como corregir eso
+
+
+------
+TRABAJOS DIGITALES? BUSCAR?

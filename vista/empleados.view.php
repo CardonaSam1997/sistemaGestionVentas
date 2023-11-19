@@ -33,6 +33,8 @@
                                 <label for="correo" class="form-label">correo:</label>
                                 <input type="email" class="form-control" id="correo" placeholder="correo del empleado" name="correo" value="<?php if(isset($_GET['correo'])) echo $_GET['correo']; ?>">
                             </div>
+                        </div>
+                        <div class="input-group">
                             <div class="mb-3">
                                 <label for="direccion" class="form-label">direccion:</label>
                                 <input type="text" class="form-control" id="direccion" placeholder="direccion del empleado" name="direccion" value="<?php if(isset($_GET['direccion']))  echo $_GET['direccion']; ?>">
@@ -45,12 +47,14 @@
                                 <label for="salario" class="form-label">salario:</label>
                                 <input type="number" class="form-control" id="salario" placeholder="salario del empleado" name="salario" value="<?php if(isset($_GET['salario']))  echo $_GET['salario']; ?>">
                             </div>
+                        </div>
+                        <div class="input-group">                            
                             <div class="mb-3">
-                                <label class="form-label">Fecha de contratación:</label>
-                                <br>
-                                <input type="date" name="fechaC" value="<?php echo fechaHoy(); ?>">
+                                <label class="form-label">Fecha de contratación:</label>                                
+                                <input type="date" class="form-control" name="fechaC" value="<?php echo fechaHoy(); ?>">
                             </div>
                         </div>
+                        
                         <?php if(!empty($error)):?>
                             <!-- quitar estilo y ponerlo en archivo.css -->
                             <div class="alert alert-danger" role="alert" style="text-align: center;">
@@ -72,8 +76,9 @@
             <div class="col-md-12">
                 <!-- ORGANIZAR EL TAMAÑO DE LA TABLA -->
                 <div class="cont-table">
-                    <!-- ORGANIZAR DESDE CSS -->
-                    <button value="Descargar Excel" style="background-color: green;border-color: greenyellow;">Descargar Excel</button>
+                    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+                        <button class="btnExcel" type="submit" name="excel">Descargar Excel</button>
+                    </form>
                     <table  class="table">
                         <thead>
                             <tr>                                
