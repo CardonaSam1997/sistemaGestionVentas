@@ -1,9 +1,16 @@
+<?php $titulo; 
+    if(isset($_GET['pagina'])){
+        $titulo = $_GET['pagina'];
+    }else{
+        $titulo = "Menu principal";
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?php echo $titulo; ?></title>
     <link rel="stylesheet" href="../vista/css/estilos.css">
     <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -16,6 +23,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- FONT AWESOME -->
     <script src="https://kit.fontawesome.com/902877b656.js" crossorigin="anonymous"></script>
+    <!-- CHART (Graficos) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>    
 </head>
 <body>
     <header id="menu">
@@ -77,7 +86,7 @@
                     </li>                    
                     <li>
                         <h6><?php echo $_SESSION['usuario']; ?></h6>
-                        <p><?php echo $_SESSION['rol']; ?></p>
+                        <p><?php if(isset($_GET['rol'])) echo $_SESSION['rol']; ?></p>
                     </li>
                     <li>
                         <div class="cont-user">

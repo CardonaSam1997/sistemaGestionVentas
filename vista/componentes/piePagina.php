@@ -13,5 +13,6 @@
 
     
     <script src="../vista/js/app.js"></script>
+    <script src="../vista/js/graficos.js"></script>
 </body>
 </html>

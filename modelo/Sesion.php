@@ -16,8 +16,8 @@ class IniciarSesion{
         WHERE sesiones.usuario = :user AND sesiones.contrasena = :passw";
         try{
             $ps = $this->con->Conectar()->prepare($query);
-            $ps->bindParam(":user",$user, PDO::PARAM_STR);
-            $ps->bindParam(":passw",$passw, PDO::PARAM_STR);
+            $ps->bindValue(":user",$user, PDO::PARAM_STR);
+            $ps->bindValue(":passw",$passw, PDO::PARAM_STR);
             $ps->execute();
             $rs = $ps->fetch(PDO::FETCH_ASSOC);            
             //DEBERIA IMPRIMIR PARA VER COMO SALE ESTO??

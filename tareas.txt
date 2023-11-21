@@ -44,3 +44,7 @@ la fecha esta adelantada por un dia, mirar como corregir eso
 
 ------
 TRABAJOS DIGITALES? BUSCAR?
+
+
+-------------
+Crear perfil y publicar tarea para ver quien la resuleve

@@ -33,17 +33,17 @@ class Empleado{
         :direcc,:discap,:cargo,:sal,:fechaC)";
         try{
             $ps = $this->con->Conectar()->prepare($query);
-            $ps->bindParam(":numEmp",$numEmp);
-            $ps->bindParam(":ced",$cedula);
-            $ps->bindParam(":nom",$nombre);
-            $ps->bindParam(":edad",$edad);
-            $ps->bindParam(":tel",$telefono);
-            $ps->bindParam(":email",$email);
-            $ps->bindParam(":direcc",$direccion);
-            $ps->bindParam(":discap",$discap);
-            $ps->bindParam(":cargo",$cargo);
-            $ps->bindParam(":sal",$salario);
-            $ps->bindParam(":fechaC",$fechaC);
+            $ps->bindValue(":numEmp",$numEmp,PDO::PARAM_STR);
+            $ps->bindValue(":ced",$cedula,PDO::PARAM_STR);
+            $ps->bindValue(":nom",$nombre,PDO::PARAM_STR);
+            $ps->bindValue(":edad",$edad,PDO::PARAM_STR);
+            $ps->bindValue(":tel",$telefono,PDO::PARAM_STR);
+            $ps->bindValue(":email",$email,PDO::PARAM_STR);
+            $ps->bindValue(":direcc",$direccion,PDO::PARAM_STR);
+            $ps->bindValue(":discap",$discap);
+            $ps->bindValue(":cargo",$cargo,PDO::PARAM_STR);
+            $ps->bindValue(":sal",$salario);
+            $ps->bindValue(":fechaC",$fechaC,PDO::PARAM_STR);
             $ps->execute();                        
         }catch(PDOException $e){
             error_log("ERROR en guardarEmpleados: ".$e->getMessage());

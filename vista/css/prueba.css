@@ -1,0 +1,37 @@
+.clic{
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border-radius: 50px;
+    position: absolute;
+    right: 10px;
+}
+
+.tooltip-bottom {
+    /* Modify size here: */
+    --size: 150px;
+    --padding: 10px;
+
+    position: relative;
+    width: calc(var(--size) - var(--padding));
+    height: calc(var(--size) - var(--padding));/*  / 2 */
+    background: #333;
+    padding: var(--padding);
+    top: 30px;    
+    display: none;
+}
+  
+.tooltip-bottom:after {
+    content: '';
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: #333;
+    height: 16px;
+    width: 16px;
+}
+
+.abrir{
+    display: block;
+}

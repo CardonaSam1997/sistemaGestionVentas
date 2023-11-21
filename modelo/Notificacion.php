@@ -33,18 +33,16 @@ class Notificacion{
         $this->$dias = $dias;
     }
 
-    public function guardarNotificacion($codigoP,$dias){
-        //condicional en mysql para agregar fkempleados de aquellos que sean admin
-        //hacer metodo para que eso funcione!!
+    public function guardarNotificacion($codigoP,$dias){        
         //NO FUNCIONO, SIGUE INGRESANDO LOS PRODUCTOS(LOS DUPLICA)
         $query = "INSERT INTO notificaciones(fkProductos,dias)VALUES(:codigoP,:dias)
         ON DUPLICATE KEY UPDATE fkProductos = fkProductos";
         $con = new Conexion();
         try{
             $ps = $con->Conectar()->prepare($query);
-            $ps->bindParam(":codigoP",$codigoP);
-            $ps->bindParam(":dias",$dias);            
-//          $ps->bindParam(":idEmpl",$idEmpl);
+            $ps->bindValue(":codigoP",$codigoP);
+            $ps->bindValue(":dias",$dias);            
+//          $ps->bindValue(":idEmpl",$idEmpl);
             $ps->execute();            
         }catch(Exception $e){
             error_log("ERROR al guardar la notificacion: ".$e->getMessage());

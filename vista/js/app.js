@@ -1,6 +1,9 @@
 $( document ).ready(function(){
 
-    //NO FUNCIONA ONCLIC Y PHP
+    // -- PRUEBA
+    $(".clic").click(function(){
+        $(".tooltip-bottom").addClass("abrir");
+	});
 
     //si clic
     $(".passw").click(function(){		

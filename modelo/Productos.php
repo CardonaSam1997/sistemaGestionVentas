@@ -23,7 +23,7 @@ class Producto{
         if($valor == 1){
             $query = "SELECT * FROM productos";
         }else{
-
+            $query = "SELECT * FROM productos WHERE ";
         }
         
         try{
@@ -46,13 +46,13 @@ class Producto{
         VALUES (:codigo,:nombre,:marca,:precio,:unidad,:categoria,:fechaV)";
         try{
             $ps = $this->con->Conectar()->prepare($query);
-            $ps->bindParam(":codigo",$codigo, PDO::PARAM_STR);
-            $ps->bindParam(":nombre",$nombre, PDO::PARAM_STR);
-            $ps->bindParam(":marca",$marca,PDO::PARAM_STR);
-            $ps->bindParam(":precio",$precio,PDO::PARAM_STR);
-            $ps->bindParam(":unidad",$unidad,PDO::PARAM_INT);
-            $ps->bindParam(":categoria",$categoria,PDO::PARAM_STR);
-            $ps->bindParam(":fechaV",$fechaV,PDO::PARAM_STR);
+            $ps->bindValue(":codigo",$codigo, PDO::PARAM_STR);
+            $ps->bindValue(":nombre",$nombre, PDO::PARAM_STR);
+            $ps->bindValue(":marca",$marca,PDO::PARAM_STR);
+            $ps->bindValue(":precio",$precio,PDO::PARAM_STR);
+            $ps->bindValue(":unidad",$unidad,PDO::PARAM_INT);
+            $ps->bindValue(":categoria",$categoria,PDO::PARAM_STR);
+            $ps->bindValue(":fechaV",$fechaV,PDO::PARAM_STR);
             $ps->execute();                   
         }catch(PDOException $e){
             error_log("ERROR en guardarProductos: ".$e->getMessage());
@@ -66,7 +66,7 @@ class Producto{
         $query = "DELETE FROM productos WHERE codigo= :codigo";
         try{
             $ps = $this->con->Conectar()->prepare($query);
-            $ps->bindParam(":codigo",$id,PDO::PARAM_STR);
+            $ps->bindValue(":codigo",$id,PDO::PARAM_STR);
             $ps->execute();
         }catch(PDOException $e){
             error_log("ERROR en guardarProductos: ".$e->getMessage());
@@ -81,13 +81,13 @@ class Producto{
         unidad = :unidad, fechaVencimiento = :fechaV WHERE codigo = :codigo";
         try{
             $ps = $this->con->Conectar()->prepare($query);
-            $ps->bindParam(":codigo",$codigo,PDO::PARAM_STR);
-            $ps->bindParam(":nombre",$nombre,PDO::PARAM_STR);
-            $ps->bindParam(":marca",$marca,PDO::PARAM_STR);
-            $ps->bindParam(":categoria",$categ,PDO::PARAM_STR);
-            $ps->bindParam(":precio",$precio,PDO::PARAM_STR);
-            $ps->bindParam(":unidad",$unidad,PDO::PARAM_INT);
-            $ps->bindParam(":fechaV",$fechaV,PDO::PARAM_STR);
+            $ps->bindValue(":codigo",$codigo,PDO::PARAM_STR);
+            $ps->bindValue(":nombre",$nombre,PDO::PARAM_STR);
+            $ps->bindValue(":marca",$marca,PDO::PARAM_STR);
+            $ps->bindValue(":categoria",$categoria,PDO::PARAM_STR);
+            $ps->bindValue(":precio",$precio,PDO::PARAM_STR);
+            $ps->bindValue(":unidad",$unidad,PDO::PARAM_INT);
+            $ps->bindValue(":fechaV",$fechaV,PDO::PARAM_STR);
             $ps->execute();
         }catch(PDOException $e){
             error_log("ERROR en actualizarProductos: ".$e->getMessage());

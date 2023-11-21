@@ -1,4 +1,6 @@
-<?php require_once("../controlador/ControladorEncabezado.php"); ?>
+<?php require_once("../controlador/ControladorEncabezado.php"); 
+
+?>
     <main style="height: 900px;" id="empleados">
         <div class="row">
             <div class="col-md-12" >

@@ -11,7 +11,7 @@ require_once("../funciones/funciones.php");
 $productos = new Producto();
 $excel = new Excel();
 
-$listaProductos = $productos->traerTodosProductos();
+$listaProductos = $productos->traerTodosProductos(1);
 
 
 //GUARDAR PRODUCTOS
@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
     }else if(isset($_GET['eliminar'])){        
         $id = $_GET['eliminar'];
         $productos->eliminarProductos($id);
-        $listaProductos = $productos->traerTodosProductos();
+        $listaProductos = $productos->traerTodosProductos(1);
     }else if(isset($_GET['modificar'])){
         $codigo = $_GET['codigo'];
         $nombre = $_GET['nombre'];
@@ -46,7 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         $fechaV = $_GET['fechaV'];
         echo "dentro de modificar <br>";  
         $productos->actualizarProductos($codigo,$nombre,$marca,$precio,$unidad,$categoria,$fechaV);      
-        $listaProductos = $productos->traerTodosProductos();
+        $listaProductos = $productos->traerTodosProductos(0);
     }
 }
 
