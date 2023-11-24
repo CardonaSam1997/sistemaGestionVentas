@@ -35,37 +35,53 @@
                     <ul id="lista">
                         <!-- a PELEAR NUEVAMENTE CON LOS PUNTOS :/ -->
                         <a href="menuPrincipal.php?pagina=Menú principal">
-                            <li>
+                            <li class="cont-lista">
                                 <i class="fa-solid fa-shop fa-xl" ></i>
-                                Menu principal
+                                <p> Menu principal</p>
                             </li>
                         </a>
-                        <a href="inventario.php?pagina=productos">
-                            <li>
-                                <i class="fa-solid fa-bag-shopping fa-xl"></i>
-                                Productos
+                        <a href="inventario.php?pagina=Inventario">
+                            <li class="cont-lista">
+                            <i class="fa-solid fa-boxes-stacked fa-xl"></i>
+                                <p> Productos</p>
+                            </li>                            
+                        </a>
+                        <a href="facturas.php?pagina=Facturas">
+                            <li class="cont-lista">                                
+                                <i class="fa-regular fa-credit-card fa-xl"></i>
+                                <p> Facturas </p>
+                            </li>
+                        </a>
+                        <a href="clientes.php?pagina=Clientes">
+                            <li class="cont-lista">
+                                <i class="fa-solid fa-user-plus fa-xl"></i>                                
+                                <p> Clientes</p>
                             </li>                            
                         </a>
                         <a href="empleados.php?pagina=empleados">
-                            <li>
+                            <li class="cont-lista">
                                 <i class="fa-solid fa-users fa-xl"></i>
-                                Empleados
+                                <p> Empleados</p>
+                            </li>
+                        </a>
+                        <a href="proveedores.php?pagina=Proveedores">
+                            <li class="cont-lista">
+                            <i class="fa-solid fa-truck-moving fa-xl"></i>
+                                <p> Proveedores</p>
                             </li>
                         </a>
                         <a href="configuracion.php?pagina=Configuración">
-                            <li>
+                            <li class="cont-lista">
                                 <i class="fa-solid fa-gear fa-xl"></i>
-                                Configuración
+                               <p> Configuración</p>
                             </li>
                         </a>
-                        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET"><!-- AGREGAR input para enviar cerrar sesion por url -->
-                            <li>
-                                <button type="submit" name="cerrar" class="cerrar" value="cerrar">
-                                    <i class="fa-solid fa-door-open fa-xl" style="color: #ffffff;"></i>
-                                    Cerrar sesión
-                                </button>                                
+                        <a href="">
+                            <li class="cont-lista">                                
+                                <i class="fa-solid fa-door-open fa-xl" style="color: #ffffff;"></i>
+                                <p>Cerrar sesión </p>
                             </li>
-                        </form>
+                        </a>
                     </ul>
                 </div>
                 <div id="menuHamburg">                

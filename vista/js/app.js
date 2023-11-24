@@ -11,16 +11,16 @@ $( document ).ready(function(){
         //$(".capa").removeClass("main .capa");
 	});
 
-    let num = 0;
+    let abrir = true;
     $("#menuHamburg").click(function(){
-        if(num == 0){            
+        if(abrir === true){            
             $(".menuDespl").addClass("abrirMenuDespl");
-            $("#lista").addClass("abrirLista");
-            num = 1;            
+            $(".cont-lista p").addClass("abrirLista");
+            abrir = false;
         }else{            
             $(".menuDespl").removeClass("abrirMenuDespl");
-            $("#lista").removeClass("abrirLista");            
-            num = 0;
+            $(".cont-lista p").removeClass("abrirLista");            
+            abrir = true;
         }
 	});
        
@@ -35,5 +35,3 @@ function mostrarModal(codigoProducto) {
     // Muestra el código en la modal o realiza otras operaciones necesarias
     document.getElementById('codigoProductoModal').innerHTML = codigoSeleccionado;
 }
-
-

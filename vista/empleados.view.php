@@ -85,9 +85,7 @@
                         <thead>
                             <tr>                                
                                 <th scope="col">Codigo</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Correo</th>
-                                <th scope="col">Dirección</th>
+                                <th scope="col">Nombre</th>                                
                                 <th scope="col">Cargo</th>
                                 <th scope="col">Salario</th>
                                 <th scope="col">Fecha contratación</th>
@@ -96,11 +94,9 @@
                         </thead>
                         <tbody>
                             <?php foreach($listaEmpleados as $empleado):?><!-- un checkBox para mostrar solo los activos hacer una mejora, solo mostrar los que estan activos-->
-                                <tr>                                    
-                                    <td><?php echo $empleado['numero_empleado']; ?></td>                                    
-                                    <td><?php echo $empleado['nombre']; ?></td>                                    
-                                    <td><?php echo $empleado['correo']; ?></td>
-                                    <td><?php echo $empleado['direccion']; ?></td>                                    
+                                <tr>
+                                    <td><?php echo $empleado['codigoEmpleado']; ?></td>
+                                    <td><?php echo $empleado['nombre']; ?></td>
                                     <td><?php echo $empleado['cargo']; ?></td>
                                     <td><?php echo $empleado['salario']; ?></td>
                                     <td><?php echo $empleado['fecha_contratacion']; ?></td>

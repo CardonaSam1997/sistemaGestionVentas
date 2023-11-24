@@ -3,7 +3,7 @@ dia 2: 2h
 dia 3: 8h
 dia 4: Se descanso
 dia 5: 4h
-dia 6:
+dia 6: 2h
 
 DESAFIOS DEL PROCESO
 1- a medida que iba construyendo la aplicacion, empece a ver distintas

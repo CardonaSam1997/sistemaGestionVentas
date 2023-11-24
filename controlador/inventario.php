@@ -3,6 +3,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 //Importar
 require_once("../modelo/Productos.php");
+require_once("../modelo/Proveedor.php");
 require_once("../modelo/Notificacion.php");
 require_once("../modelo/Excel.php");
 require_once("../funciones/funciones.php");
@@ -11,44 +12,52 @@ require_once("../funciones/funciones.php");
 $productos = new Producto();
 $excel = new Excel();
 
-$listaProductos = $productos->traerTodosProductos(1);
-
+$listaProductos = $productos->traerTodosProductos();
 
 //GUARDAR PRODUCTOS
-if($_SERVER['REQUEST_METHOD'] == 'GET'){        
+if($_SERVER['REQUEST_METHOD'] == 'POST'){        
     $error;
     $mss;
-    if(isset($_GET['guardar'])){        
-        $codigo = $_GET['codigo'];
-        $nombre = $_GET['nombre'];
-        $marca = $_GET['marca'];
-        $precio = $_GET['precio'];
-        $precio = $_GET['unidad'];
-        $categoria = $_GET['categoria'];
-        $fechaV = $_GET['fechaV'];
-        if(empty($codigo) || empty($nombre) || empty($marca) || empty($precio) || empty($unidad)){            
+    if(isset($_POST['guardar'])){
+        $codigo = $_POST['codigo'];
+        $nombre = $_POST['nombre'];
+        $marca = $_POST['marca'];
+        $precio = $_POST['precio'];
+        $unidad = $_POST['unidad'];
+        $categoria = $_POST['categoria'];
+        $fechaV = $_POST['fechaV'];        
+        if(empty($codigo) || empty($nombre) || empty($marca) || empty($precio) || empty($unidad)){
             $error = "Por favor rellenar todos los campos!!";
         }else{            
-            $productos->guardarProductos($codigo,$nombre,$marca,$precio,$unidad,$categoria,$fechaV);
-            $mss = "Producto guardado exitosamente!";
-        }        
-    }else if(isset($_GET['eliminar'])){        
-        $id = $_GET['eliminar'];
-        $productos->eliminarProductos($id);
-        $listaProductos = $productos->traerTodosProductos(1);
-    }else if(isset($_GET['modificar'])){
-        $codigo = $_GET['codigo'];
-        $nombre = $_GET['nombre'];
-        $marca = $_GET['marca'];
-        $precio = $_GET['precio'];
-        $precio = $_GET['unidad'];
-        $categoria = $_GET['categoria'];
-        $fechaV = $_GET['fechaV'];
+            $valor = $productos->guardarProductos($codigo,$nombre,$marca,$precio,$unidad,$categoria,$fechaV);            
+            if($valor){//si es true
+                $error = "El producto con el codigo '$codigo' ya se encuentra registrado";
+            }
+            $mss = "Producto guardado exitosamente!";            
+        }    
+    }else if(isset($_POST['modificar'])){
+        $codigo = $_POST['codigo'];
+        $nombre = $_POST['nombre'];
+        $marca = $_POST['marca'];
+        $precio = $_POST['precio'];
+        $precio = $_POST['unidad'];
+        $categoria = $_POST['categoria'];
+        $fechaV = $_POST['fechaV'];
         echo "dentro de modificar <br>";  
         $productos->actualizarProductos($codigo,$nombre,$marca,$precio,$unidad,$categoria,$fechaV);      
-        $listaProductos = $productos->traerTodosProductos(0);
+        $listaProductos = $productos->traerTodosProductos();
     }
 }
+
+//ELIMINAR CON FETCH
+if($_SERVER['REQUEST_METHOD'] == 'GET'){
+    if(isset($_GET['eliminar'])){
+        $id = $_GET['eliminar'];
+        $productos->eliminarProductos($id);
+        $listaProductos = $productos->traerTodosProductos();
+    }
+}
+
 
 
 //compararFechas
@@ -73,13 +82,12 @@ foreach($listaFechasProductos as $fechaProductos){
 el codigo del producto que tenga 5 o menos dias en comparacion de fechas y va
 a guardar la cantidad de dias que le quedan*/
 
-
+//Descargar excel
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(isset($_POST['excel'])){        
         $excel->crearExcel("productos");
     }
 }
-
 
 require("../vista/inventario.view.php");
 ?>

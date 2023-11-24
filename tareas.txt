@@ -48,3 +48,14 @@ TRABAJOS DIGITALES? BUSCAR?
 
 -------------
 Crear perfil y publicar tarea para ver quien la resuleve
+
+
+-----------------
+LA MODIFICACION 
+PRODUCTOS Y EMPLEADOS TIENE QUE SER CON FETCH
+
+
+------------
+cuando llega el proveedor se hace el registro 
+de los productos junto con detalle productos y eso conlleva tener a proveedor ya registrado en la BD
+luego en producto se le coloca el precio por unidad y como el local va a manejar cada producto

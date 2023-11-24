@@ -1,6 +1,4 @@
-<?php require_once("../controlador/ControladorEncabezado.php");
-
-$scripts; ?>
+<?php require_once("../controlador/ControladorEncabezado.php"); ?>
 <!-- DESDE AQUI -->
     <main id="menuPrincipal">
         <div class="row">
