@@ -27,7 +27,7 @@ class Empleado{
     public function guardarEmpleado($numEmp,$cedula,$nombre,$edad,$telefono,
     $email,$direccion,$discap,$cargo,$salario,$fechaC){
         $query = "INSERT INTO empleados
-        (numero_empleado,cedula,nombre,edad,telefono,correo,
+        (codigoEmpleado,cedula,nombre,edad,telefono,correo,
         direccion,discapacitado,cargo,salario,fecha_contratacion)
         VALUES(:numEmp,:ced,:nom,:edad,:tel,:email,
         :direcc,:discap,:cargo,:sal,:fechaC)";

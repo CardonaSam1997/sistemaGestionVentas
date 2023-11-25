@@ -164,7 +164,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Fecha de vencimiento:</label>                                
-                                <input type="date" class="form-control" name="fechaV" value="<?php echo fechaHoy(); ?>">
+                                <input type="date" class="form-control" name="fechaV" id="fechaV" value="<?php echo fechaHoy(); ?>">
                             </div>
                         </div>
                         <?php if(!empty($error)):?>
@@ -178,7 +178,7 @@
                             </div>
                         <?php endif; ?>                        
                         <div class="cont-btn">
-                            <input type="submit" value="Actualizar"  class="alert alert-success" role="alert" name="modificar">
+                            <input type="submit" value="Actualizar"  class="alert alert-success" role="alert" id="modificar" name="modificar">
                         </div>
                     </form>
                 </div>

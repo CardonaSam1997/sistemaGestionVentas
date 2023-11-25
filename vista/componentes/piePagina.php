@@ -12,7 +12,8 @@
     </footer>
 
     <!-- NODEBEMOS TENER VARIOS JS, SOLO UNO -->
-    <script src="../vista/js/app.js"></script>
-    <script src="../vista/js/graficos.js"></script>
+    <script src="../vista/js/ajax/obtenerEmpleados.js"></script>
+    <!-- <script src="../vista/js/app.js"></script>
+    <script src="../vista/js/graficos.js"></script> -->
 </body>
 </html>

@@ -55,8 +55,7 @@
                                 <label class="form-label">Fecha de contratación:</label>                                
                                 <input type="date" class="form-control" name="fechaC" value="<?php echo fechaHoy(); ?>">
                             </div>
-                        </div>
-                        
+                        </div>                        
                         <?php if(!empty($error)):?>
                             <!-- quitar estilo y ponerlo en archivo.css -->
                             <div class="alert alert-danger" role="alert" style="text-align: center;">
@@ -73,10 +72,10 @@
                     </form>
                 </div>
             </div>
-        </div>        
+        </div>  
+        <!-- TABLA -->      
         <div class="row">
-            <div class="col-md-12">
-                <!-- ORGANIZAR EL TAMAÑO DE LA TABLA -->
+            <div class="col-md-12">                
                 <div class="cont-table">
                     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                         <button class="btnExcel" type="submit" name="excel">Descargar Excel</button>
@@ -92,7 +91,7 @@
                                 <th scope="col">Boton</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="cuerpoTabla">
                             <?php foreach($listaEmpleados as $empleado):?><!-- un checkBox para mostrar solo los activos hacer una mejora, solo mostrar los que estan activos-->
                                 <tr>
                                     <td><?php echo $empleado['codigoEmpleado']; ?></td>
@@ -113,7 +112,7 @@
                                         </form>
                                     </td>
                                 </tr>
-                            <?php endforeach; ?>
+                            <?php endforeach; ?>                          
                         </tbody>
                     </table>
                 </div>
