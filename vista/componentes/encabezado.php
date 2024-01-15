@@ -1,4 +1,5 @@
-<?php $titulo; 
+<?php 
+    $titulo; 
     if(isset($_GET['pagina'])){
         $titulo = $_GET['pagina'];
     }else{
@@ -93,22 +94,17 @@
             </div>
             <div class="col-md-4">
                 <ul id="usuario">
-                    <li>
+                    <li>                        
                         <?php if($respuesta === false): ?>
                             <i class="fa-solid fa-bell fa-shake fa-xl" style="color: #e66100;"></i>
-                        <?php else: ?>                        
+                        <?php else: ?>
                             <i class="fa-solid fa-bell fa-xl" style="color: #e66100;"></i>
                         <?php endif; ?>
                     </li>                    
                     <li>
-                        <h6><?php echo $_SESSION['usuario']; ?></h6>
-                        <p><?php if(isset($_GET['rol'])) echo $_SESSION['rol']; ?></p>
-                    </li>
-                    <li>
-                        <div class="cont-user">
-                            <i class="fa-solid fa-user fa-2xl" style="color: #a51d2d;"></i>                        
-                        </div>
-                    </li>
+                        <h6><?php if(isset($_SESSION['usuario'])) echo $_SESSION['usuario']; ?></h6>
+                        <p><?php if(isset($_SESSION['rol'])) echo $_SESSION['rol']; ?></p>
+                    </li>                   
                 </ul>
             </div>
         </div>

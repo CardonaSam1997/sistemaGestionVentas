@@ -13,6 +13,7 @@ require_once("../modelo/Notificacion.php"); //SIN PROBLEMAS
 $notificaciones = Notificacion::obtenerNotificaciones();
 $respuesta = empty($notificaciones) ? true : false;
 
+
 //VERIFICAMOS LA SESION
 if(!isset($_SESSION['usuario'])){
     header("Location: ../index.php");

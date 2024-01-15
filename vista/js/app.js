@@ -27,11 +27,12 @@ $( document ).ready(function(){
 });
 
 
-function mostrarModal(codigoProducto) {
+function mostrarModal(codigoProducto,nombre) {
     // Aquí puedes hacer lo que necesites con el código del producto
     // Por ejemplo, puedes guardarlo en una variable y luego mostrarlo en la modal
     var codigoSeleccionado = codigoProducto.toString().padStart(3, '0');
 
     // Muestra el código en la modal o realiza otras operaciones necesarias
     document.getElementById('codigoProductoModal').innerHTML = codigoSeleccionado;
+    document.getElementById('nombre').innerHTML = nombre;
 }

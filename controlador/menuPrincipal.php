@@ -8,6 +8,5 @@ error_reporting(E_ALL);
 
 
 
-
 require("../vista/menu.view.php");
 ?>

@@ -13,9 +13,10 @@ if(isset($_POST['ingresar'])){
     $passw = $_POST['passw'];
     if(empty($user) || empty($passw) ){//estan vacios
         $error = "Por favor llenar todos los campos!!";
-    }else{//no estan vacios
-        $verificar = $iniciarSesion->verificarUsuario($user,$passw);
-        if($verificar == true){//true
+    }else{//no estan vacios        
+        $verificar = $iniciarSesion->verificarUsuario($user,$passw);        
+        if($verificar == true){//true        
+            echo "dentro de verificar"                ;
             header("Location: ./menuPrincipal.php");
         }else{//no agarra este !! HAY QUE MIRAR PORQUE!!
            $error = "El usuario o la contraseña son incorrectos";
@@ -29,7 +30,7 @@ PARA QUE AL ENVIAR EL FORMULARIO LA CAPA SE QUEDE EN LEFT
 Y CUANDO PRESIONE EL BOTON OK DE SWEET ALERT VOLVER A AGREGARLE ESA CAPA Y RETIRARLE
 LA OTRA(MOVIMIENTOIZQUIERDO)*/ 
 //CUANDO EMAIL ESTA VACIO NO SALE EL MENSAJE DE ERROR -- SE RESETEA LA PAGINA
-
+$errorP = ""; //ESTO HAY QUE CAMBIARLO!!!
 //Recuperar password
 if(isset($_GET['recuperar'])){
     $errorP = "";

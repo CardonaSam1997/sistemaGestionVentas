@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 //Importar paquetes
 require_once("../modelo/Empleado.php");
-require_once("../modelo/Excel.php"); //genera error ???
+require_once("../modelo/Excel.php"); //genera error ??? salia error por include mejor usar include_once
 require_once("../modelo/Notificacion.php");
 /* se importan funciones y se usan en empleados.view */
 require("../funciones/funciones.php");
@@ -16,6 +16,16 @@ $excel = new Excel();
 y los imprimo en la ventana empleados.view con
 un ciclo foreach en una tabla */
 $listaEmpleados = $empleados->traerTodosEmpleados();
+
+//$unico = $empleados->traerUnicoEmpleado(1);
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if(isset($_POST['actualizar'])){
+        $nombre = $_POST['nombre'];
+        echo $nombre;
+    }
+    
+}
+
 
 //VERIFICAR CAMPOS VACIOS
 //VERIFICAR INFORMACION UNICA

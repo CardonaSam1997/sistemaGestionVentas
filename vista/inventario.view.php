@@ -176,7 +176,8 @@
                             <div class="alert alert-success" role="alert" style="text-align: center;">
                                 <?php echo $error;?>
                             </div>
-                        <?php endif; ?>                        
+                        <?php endif; ?>       
+                        <!-- INTENTAR QUE ESTE SEA CON FETCH -->
                         <div class="cont-btn">
                             <input type="submit" value="Actualizar"  class="alert alert-success" role="alert" id="modificar" name="modificar">
                         </div>

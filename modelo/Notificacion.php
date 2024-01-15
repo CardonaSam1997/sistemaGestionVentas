@@ -57,7 +57,7 @@ class Notificacion{
         $con = new Conexion();
         try{
             $ps = $con->Conectar()->prepare($query);
-            $ps->execute();
+            $ps->execute();            
             $rs = $ps->fetchAll(PDO::FETCH_ASSOC);
             return $rs;
         }catch(Exception $e){

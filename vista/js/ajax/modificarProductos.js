@@ -5,7 +5,7 @@ var btnModificar = document.getElementById('modificar');
  * 
  */
 //btnModificar.addEventListener("click",function(){
-    const url = "js/ajax/datDos.txt"; //consultamos a esta url
+    const url = "js/ajax/datos.txt"; //consultamos a esta url
     //quiero que me consultes esta url
     fetch(url)
     .then(response => {

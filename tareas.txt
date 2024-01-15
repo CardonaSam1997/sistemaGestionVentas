@@ -67,6 +67,33 @@ cuando se guarde la factura al mismo tiempo se crea el pdf y se envia al correo 
 ----
 mirar coomo hacer lo del correo smtp
 
+-----------------------------------------------------
+* HACER UNA ESPECIE DE BUSQUEDAD DEL CLIENTE CON LA CEDULA como parametro EN EL MODELO CLIENTE 
+PARA LA BUSQUEDAD DEL CLIENTE EN LA CREACION DE LA factura
+
+* PROBAR EL INNNER JOIN entre tablas FACTURA Y PRODUCTO EN DETALLEFACTURAPRODUCTO
+PARA PODER EXTRAER EL NOMBRE, LA CANTIDAD DE ESE PRODUCTO
+
+* yo creo que al obtener el array asociativo "facturas", dentro de él
+en el idCliente, este deberia ser un array asociativo de CLIENTE.
+para obtener algunos datos del cliente y lo mismo con producto
+para poder extraer el nombre y la cantidad.
+para empleados puede ser el id el cual va a estar relacionado con el
+numero del empleado en la factura en caso de reclamacion de productos
+
+POSIBLE SOLUCION
+preguntarle a CHATGPT si puedo hacer lo del array asocitivo de factura y clientes.
+extrayendo los valores de una BD de la forma en la cual le pedi que me explicara
+PEDI QUE ME EXPLICARA LO SIGUIENTE: $_SESSION['permisos'][4]['r'];
+
+
+
+
+
+
+
+
+
 
 
 ----------
