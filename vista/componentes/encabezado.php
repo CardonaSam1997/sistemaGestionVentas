@@ -1,9 +1,17 @@
+<?php 
+    $titulo; 
+    if(isset($_GET['pagina'])){
+        $titulo = $_GET['pagina'];
+    }else{
+        $titulo = "Menu principal";
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?php echo $titulo; ?></title>
     <link rel="stylesheet" href="../vista/css/estilos.css">
     <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -16,6 +24,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- FONT AWESOME -->
     <script src="https://kit.fontawesome.com/902877b656.js" crossorigin="anonymous"></script>
+    <!-- CHART (Graficos) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>    
 </head>
 <body>
     <header id="menu">
@@ -26,37 +36,53 @@
                     <ul id="lista">
                         <!-- a PELEAR NUEVAMENTE CON LOS PUNTOS :/ -->
                         <a href="menuPrincipal.php?pagina=Menú principal">
-                            <li>
+                            <li class="cont-lista">
                                 <i class="fa-solid fa-shop fa-xl" ></i>
-                                Menu principal
+                                <p> Menu principal</p>
                             </li>
                         </a>
-                        <a href="inventario.php?pagina=productos">
-                            <li>
-                                <i class="fa-solid fa-bag-shopping fa-xl"></i>
-                                Productos
+                        <a href="inventario.php?pagina=Inventario">
+                            <li class="cont-lista">
+                            <i class="fa-solid fa-boxes-stacked fa-xl"></i>
+                                <p> Productos</p>
+                            </li>                            
+                        </a>
+                        <a href="facturas.php?pagina=Facturas">
+                            <li class="cont-lista">                                
+                                <i class="fa-regular fa-credit-card fa-xl"></i>
+                                <p> Facturas </p>
+                            </li>
+                        </a>
+                        <a href="clientes.php?pagina=Clientes">
+                            <li class="cont-lista">
+                                <i class="fa-solid fa-user-plus fa-xl"></i>                                
+                                <p> Clientes</p>
                             </li>                            
                         </a>
                         <a href="empleados.php?pagina=empleados">
-                            <li>
+                            <li class="cont-lista">
                                 <i class="fa-solid fa-users fa-xl"></i>
-                                Empleados
+                                <p> Empleados</p>
+                            </li>
+                        </a>
+                        <a href="proveedores.php?pagina=Proveedores">
+                            <li class="cont-lista">
+                            <i class="fa-solid fa-truck-moving fa-xl"></i>
+                                <p> Proveedores</p>
                             </li>
                         </a>
                         <a href="configuracion.php?pagina=Configuración">
-                            <li>
+                            <li class="cont-lista">
                                 <i class="fa-solid fa-gear fa-xl"></i>
-                                Configuración
+                               <p> Configuración</p>
                             </li>
                         </a>
-                        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET"><!-- AGREGAR input para enviar cerrar sesion por url -->
-                            <li>
-                                <button type="submit" name="cerrar" class="cerrar" value="cerrar">
-                                    <i class="fa-solid fa-door-open fa-xl" style="color: #ffffff;"></i>
-                                    Cerrar sesión
-                                </button>                                
+                        <a href="">
+                            <li class="cont-lista">                                
+                                <i class="fa-solid fa-door-open fa-xl" style="color: #ffffff;"></i>
+                                <p>Cerrar sesión </p>
                             </li>
-                        </form>
+                        </a>
                     </ul>
                 </div>
                 <div id="menuHamburg">                
@@ -68,22 +94,17 @@
             </div>
             <div class="col-md-4">
                 <ul id="usuario">
-                    <li>
+                    <li>                        
                         <?php if($respuesta === false): ?>
                             <i class="fa-solid fa-bell fa-shake fa-xl" style="color: #e66100;"></i>
-                        <?php else: ?>                        
+                        <?php else: ?>
                             <i class="fa-solid fa-bell fa-xl" style="color: #e66100;"></i>
                         <?php endif; ?>
                     </li>                    
                     <li>
-                        <h6><?php echo $_SESSION['usuario']; ?></h6>
-                        <p><?php echo $_SESSION['rol']; ?></p>
-                    </li>
-                    <li>
-                        <div class="cont-user">
-                            <i class="fa-solid fa-user fa-2xl" style="color: #a51d2d;"></i>                        
-                        </div>
-                    </li>
+                        <h6><?php if(isset($_SESSION['usuario'])) echo $_SESSION['usuario']; ?></h6>
+                        <p><?php if(isset($_SESSION['rol'])) echo $_SESSION['rol']; ?></p>
+                    </li>                   
                 </ul>
             </div>
         </div>

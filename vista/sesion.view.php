@@ -46,18 +46,18 @@
             <div class="col-md-6">
                 <fieldset>
                     <h1>RECUPERAR PASSW</h1>
-                    <form action="iniciarSesion.php" method="GET">
+                    <form action="../controlador/fetch/iniciarSesion.php" method="POST">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com" name="email">
-                            <label for="floatingInput">Correo:</label>
+                            <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com" name="email">
+                            <label for="email">Correo:</label>
                         </div>
-                        <?php if(!empty($errorP)): ?>
+                        <!-- PRUEBA ALERT CON FETCH -->
                             <div class="alert alert-danger" role="alert">
                                 <?php echo $errorP; ?>
                             </div>
-                        <?php endif; ?>
+                        <!-- PRUEBA ALERT CON FETCH -->
                         <div class="cont-btn">
-                            <input type="submit" value="recuperar" name="recuperar" class="btn btn-dark" id="recuperar">
+                            <button name="recuperar" class="btn btn-dark" id="recuperar">Recuperar</button>
                         </div>
                     </form>
                 </fieldset>
@@ -65,5 +65,6 @@
         </div>
     </main>
     <script src="../vista/js/app.js"></script>
+    <script src="../vista/js/fetch/buscarEmail.js"></script>
 </body>
 </html>

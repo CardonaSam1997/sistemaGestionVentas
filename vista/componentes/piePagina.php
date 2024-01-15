@@ -1,6 +1,6 @@
     <div class="subir">
         <a href="#menu">
-            <i class="fa-solid fa-arrow-up fa-beat-fade fa-lg" style="color: #ffffff;"></i>
+            <i class="fa-solid fa-arrow-up fa-lg" style="color: #ffffff;"></i>
         </a>
     </div>
     <footer>        
@@ -11,6 +11,7 @@
         </div>
     </footer>
 
+    <!-- NODEBEMOS TENER VARIOS JS, SOLO UNO -->        
     
     <script src="../vista/js/app.js"></script>
 </body>

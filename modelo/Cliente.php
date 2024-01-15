@@ -1,0 +1,10 @@
+<?php
+
+
+/***
+ * HACER UNA ESPECIE DE BUSQUEDAD DEL CLIENTE CON LA CEDULA 
+ * 
+ * 
+ * 
+ */
+?>

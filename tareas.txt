@@ -44,3 +44,81 @@ la fecha esta adelantada por un dia, mirar como corregir eso
 
 ------
 TRABAJOS DIGITALES? BUSCAR?
+
+
+-------------
+Crear perfil y publicar tarea para ver quien la resuleve
+
+
+-----------------
+LA MODIFICACION 
+PRODUCTOS Y EMPLEADOS TIENE QUE SER CON FETCH
+
+
+------------
+cuando llega el proveedor se hace el registro 
+de los productos junto con detalle productos y eso conlleva tener a proveedor ya registrado en la BD
+luego en producto se le coloca el precio por unidad y como el local va a manejar cada producto
+
+
+
+----------------
+cuando se guarde la factura al mismo tiempo se crea el pdf y se envia al correo de la persona
+----
+mirar coomo hacer lo del correo smtp
+
+-----------------------------------------------------
+* HACER UNA ESPECIE DE BUSQUEDAD DEL CLIENTE CON LA CEDULA como parametro EN EL MODELO CLIENTE 
+PARA LA BUSQUEDAD DEL CLIENTE EN LA CREACION DE LA factura
+
+* PROBAR EL INNNER JOIN entre tablas FACTURA Y PRODUCTO EN DETALLEFACTURAPRODUCTO
+PARA PODER EXTRAER EL NOMBRE, LA CANTIDAD DE ESE PRODUCTO
+
+* yo creo que al obtener el array asociativo "facturas", dentro de él
+en el idCliente, este deberia ser un array asociativo de CLIENTE.
+para obtener algunos datos del cliente y lo mismo con producto
+para poder extraer el nombre y la cantidad.
+para empleados puede ser el id el cual va a estar relacionado con el
+numero del empleado en la factura en caso de reclamacion de productos
+
+POSIBLE SOLUCION
+preguntarle a CHATGPT si puedo hacer lo del array asocitivo de factura y clientes.
+extrayendo los valores de una BD de la forma en la cual le pedi que me explicara
+PEDI QUE ME EXPLICARA LO SIGUIENTE: $_SESSION['permisos'][4]['r'];
+
+
+
+
+
+
+
+
+
+
+
+----------
+cuerpo tabla antiguo
+
+ <tbody id="cuerpoTabla">
+                            <?php foreach($listaEmpleados as $empleado):?><!-- un checkBox para mostrar solo los activos hacer una mejora, solo mostrar los que estan activos-->
+                                <tr>
+                                    <td><?php echo $empleado['codigoEmpleado']; ?></td>
+                                    <td><?php echo $empleado['nombre']; ?></td>
+                                    <td><?php echo $empleado['cargo']; ?></td>
+                                    <td><?php echo $empleado['salario']; ?></td>
+                                    <td><?php echo $empleado['fecha_contratacion']; ?></td>
+                                    <td> 
+                                        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET">
+                                            <button type="submit" class="btn btn-danger" name="eliminar" value="<?php if(isset($_GET['eliminar'])) echo $empleado['id']; ?>">
+                                                <i class="fa-solid fa-trash" style="color: #fafcff;" ></i>
+                                            </button>
+                                            <!-- USAR JS para que aparezca una modal al dar clic en modificar. 
+                                            se debe conservar el id del empleado a modificar -->
+                                            <button type="submit" class="btn btn-success" name="modificar" value="<?php if(isset($_GET['modificar'])) echo $empleado['id']; ?>">
+                                                <i class="fa-solid fa-pencil" style="color: #ffffff;"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>

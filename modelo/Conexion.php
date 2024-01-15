@@ -9,7 +9,7 @@ class Conexion{
     public function __construct(){
         $this->user = "root";
         $this->passw = "";
-        $this->url = "mysql:host=localhost;port=3302;dbname=sistemaGestion";
+        $this->url = "mysql:host=localhost;port=3306;dbname=sistemagestion";
     }
 
     public function Conectar(){

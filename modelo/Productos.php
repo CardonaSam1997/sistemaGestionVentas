@@ -4,6 +4,7 @@ require_once("Conexion.php");
 class Producto{
 
     private $id;
+    private $error;
     private $con;    
 
     public function __construct(){
@@ -18,14 +19,30 @@ class Producto{
         return $this->id;
     }
 
-    public function traerTodosProductos($valor){
-        $query = "";
-        if($valor == 1){
-            $query = "SELECT * FROM productos";
-        }else{
+    public  function getError(){
+        return $this->error;
+    }
 
+    public function traerProductoUnico($id){
+        $query = "SELECT * FROM productos WHERE id = :id";        
+        try{
+            $ps = $this->con->Conectar()->prepare($query);
+            $ps->bindValue(":id",$id,PDO::PARAM_INT);
+            $ps->execute();
+            $rs = $ps->fetch(PDO::FETCH_ASSOC);
+            return $rs;
+        }catch(PDOException $e){
+            error_log("ERROR en traerTodosProductos: ".$e->getMessage());
+        }finally{
+            $ps = null;
+            $rs = null;
+            $this->con->desconectar();
         }
-        
+    }
+
+    //USARLO EN LA MODAL
+    public function traerTodosProductos(){        
+        $query = "SELECT * FROM productos";
         try{
             $ps = $this->con->Conectar()->prepare($query);
             $ps->execute();
@@ -46,16 +63,20 @@ class Producto{
         VALUES (:codigo,:nombre,:marca,:precio,:unidad,:categoria,:fechaV)";
         try{
             $ps = $this->con->Conectar()->prepare($query);
-            $ps->bindParam(":codigo",$codigo, PDO::PARAM_STR);
-            $ps->bindParam(":nombre",$nombre, PDO::PARAM_STR);
-            $ps->bindParam(":marca",$marca,PDO::PARAM_STR);
-            $ps->bindParam(":precio",$precio,PDO::PARAM_STR);
-            $ps->bindParam(":unidad",$unidad,PDO::PARAM_INT);
-            $ps->bindParam(":categoria",$categoria,PDO::PARAM_STR);
-            $ps->bindParam(":fechaV",$fechaV,PDO::PARAM_STR);
+            $ps->bindValue(":codigo",$codigo, PDO::PARAM_STR);
+            $ps->bindValue(":nombre",$nombre, PDO::PARAM_STR);
+            $ps->bindValue(":marca",$marca,PDO::PARAM_STR);
+            $ps->bindValue(":precio",$precio,PDO::PARAM_STR);
+            $ps->bindValue(":unidad",$unidad,PDO::PARAM_INT);
+            $ps->bindValue(":categoria",$categoria,PDO::PARAM_STR);
+            $ps->bindValue(":fechaV",$fechaV,PDO::PARAM_STR);
             $ps->execute();                   
         }catch(PDOException $e){
             error_log("ERROR en guardarProductos: ".$e->getMessage());
+            $error = $e->getCode();
+            if($error == 23000){
+                return true;                
+            }
         }finally{
             $ps = null;
             $this->con->desconectar();
@@ -66,7 +87,7 @@ class Producto{
         $query = "DELETE FROM productos WHERE codigo= :codigo";
         try{
             $ps = $this->con->Conectar()->prepare($query);
-            $ps->bindParam(":codigo",$id,PDO::PARAM_STR);
+            $ps->bindValue(":codigo",$id,PDO::PARAM_STR);
             $ps->execute();
         }catch(PDOException $e){
             error_log("ERROR en guardarProductos: ".$e->getMessage());
@@ -81,13 +102,13 @@ class Producto{
         unidad = :unidad, fechaVencimiento = :fechaV WHERE codigo = :codigo";
         try{
             $ps = $this->con->Conectar()->prepare($query);
-            $ps->bindParam(":codigo",$codigo,PDO::PARAM_STR);
-            $ps->bindParam(":nombre",$nombre,PDO::PARAM_STR);
-            $ps->bindParam(":marca",$marca,PDO::PARAM_STR);
-            $ps->bindParam(":categoria",$categ,PDO::PARAM_STR);
-            $ps->bindParam(":precio",$precio,PDO::PARAM_STR);
-            $ps->bindParam(":unidad",$unidad,PDO::PARAM_INT);
-            $ps->bindParam(":fechaV",$fechaV,PDO::PARAM_STR);
+            $ps->bindValue(":codigo",$codigo,PDO::PARAM_STR);
+            $ps->bindValue(":nombre",$nombre,PDO::PARAM_STR);
+            $ps->bindValue(":marca",$marca,PDO::PARAM_STR);
+            $ps->bindValue(":categoria",$categoria,PDO::PARAM_STR);
+            $ps->bindValue(":precio",$precio,PDO::PARAM_STR);
+            $ps->bindValue(":unidad",$unidad,PDO::PARAM_INT);
+            $ps->bindValue(":fechaV",$fechaV,PDO::PARAM_STR);
             $ps->execute();
         }catch(PDOException $e){
             error_log("ERROR en actualizarProductos: ".$e->getMessage());
@@ -112,9 +133,5 @@ class Producto{
             $this->con->desconectar();
         }
     }
-
-
 }
-
-
 ?>

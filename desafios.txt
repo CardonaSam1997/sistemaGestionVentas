@@ -3,7 +3,7 @@ dia 2: 2h
 dia 3: 8h
 dia 4: Se descanso
 dia 5: 4h
-dia 6:
+dia 6: 2h
 
 DESAFIOS DEL PROCESO
 1- a medida que iba construyendo la aplicacion, empece a ver distintas
@@ -47,5 +47,7 @@ estoy progresando!!
 
 11- Un error (duplicacion de clase), mi desconocimiento entre require y require_once
 
-12- 
+12- 11/01/2024 Trabaje todo diciembre en un puesto de chuzos y al regresar la bd se habia perdido
+NO HICE BACKUP no pense que pasaria esto. Me toca volver a construir la BD, mirar si
+tengo algun archivo con el diagrama de BD
 

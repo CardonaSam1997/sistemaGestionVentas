@@ -71,8 +71,7 @@ class Excel{
         try{
             $ps = $this->con->Conectar()->prepare($query);
             $ps->execute();
-            
-            //instancia
+                        
             $spreadsheet = new Spreadsheet();
             $sheet = $spreadsheet->getActiveSheet();
                        
@@ -96,12 +95,10 @@ class Excel{
             }
             // Guardar el archivo Excel
             $writer = new Xlsx($spreadsheet);
-             // Especifica la ruta donde deseas guardar el archivo
-            $archivo_excel = "/opt/lampp/htdocs/sistemaGestionVentas/$tabla.xls";
-            $writer->save($archivo_excel);            
-            // Cerrar la conexión a la base de datos
-            //echo "Datos exportados correctamente a Excel en $archivo_excel";
-            //-------
+            // Especifica la ruta donde deseas guardar el archivo             
+            $archivo_excel = "C:/Users/Cardona/Documents/$tabla.xls";
+            //$archivo_excel = "/opt/lampp/htdocs/sistemaGestionVentas/$tabla.xls"; LINUX!!
+            $writer->save($archivo_excel);
         }catch(Exception $e){
             error_log("ERROR EN crearExcel: ".$e->getMessage());
         }finally{
@@ -111,13 +108,5 @@ class Excel{
     }
 
 }
-
-/* Aqui funciona el excel, pero cuando intento instanciar
-no me funciona
-$object = new Excel();
-echo "estoy probando excel<br>----------------------<br>";
-$object->crearExcel("empleados");*/
-
-
 
 ?>

@@ -1,6 +1,9 @@
 $( document ).ready(function(){
 
-    //NO FUNCIONA ONCLIC Y PHP
+    // -- PRUEBA
+    $(".clic").click(function(){
+        $(".tooltip-bottom").addClass("abrir");
+	});
 
     //si clic
     $(".passw").click(function(){		
@@ -8,29 +11,28 @@ $( document ).ready(function(){
         //$(".capa").removeClass("main .capa");
 	});
 
-    let num = 0;
+    let abrir = true;
     $("#menuHamburg").click(function(){
-        if(num == 0){            
+        if(abrir === true){            
             $(".menuDespl").addClass("abrirMenuDespl");
-            $("#lista").addClass("abrirLista");
-            num = 1;            
+            $(".cont-lista p").addClass("abrirLista");
+            abrir = false;
         }else{            
             $(".menuDespl").removeClass("abrirMenuDespl");
-            $("#lista").removeClass("abrirLista");            
-            num = 0;
+            $(".cont-lista p").removeClass("abrirLista");            
+            abrir = true;
         }
 	});
        
 });
 
 
-function mostrarModal(codigoProducto) {
+function mostrarModal(codigoProducto,nombre) {
     // Aquí puedes hacer lo que necesites con el código del producto
     // Por ejemplo, puedes guardarlo en una variable y luego mostrarlo en la modal
     var codigoSeleccionado = codigoProducto.toString().padStart(3, '0');
 
     // Muestra el código en la modal o realiza otras operaciones necesarias
     document.getElementById('codigoProductoModal').innerHTML = codigoSeleccionado;
+    document.getElementById('nombre').innerHTML = nombre;
 }
-
-

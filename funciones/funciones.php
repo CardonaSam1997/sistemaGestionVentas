@@ -37,10 +37,22 @@ function traerPagina(){    //este no se esta usando
 //devulve la diferencia de dias entre ambas fechas
 function compararFechas($fecha){
     //comparo dias de diferencia
-    $tiempo1 = new DateTime("2023-11-16");//"2023-11-16"
-    $tiempo2 = new DateTime($fecha);//$r[1]['fechaVencimiento']
-    $tiempo = $tiempo1->diff($tiempo2);    
+    $tiempo1 =  new DateTime('now', new DateTimeZone('America/Bogota'));//hoy
+    //un array con diferentes fechas las cuales
+    //van a ser recorridas para anotar los diferentes 
+    //dias que hay entre la fecha actual 
+    //y la fecha de vencimiento del producto
+    $tiempo2 = new DateTime($fecha);
+    $tiempo = $tiempo1->diff($tiempo2);//diferencia de dias
     return $tiempo->format('%a');
+    //->format('%a');    
 }
+echo compararFechas("2023-12-04");
 
+
+$sesionP = [
+    "permisos" => 
+    ["uno","dos","tres","cuatro",
+    ["r","d"]]
+];
 ?>
